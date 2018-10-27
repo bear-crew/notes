@@ -130,6 +130,13 @@ body {
 
 /* как?? */
 
+#block-edit {
+    height: 40px;
+    background-color: #E0E0E0;
+    border-radius: 6px;
+    width: 550px;
+}
+
 #edit {
     display: flex;
     justify-content: flex-end;
@@ -139,10 +146,11 @@ body {
     min-height: 60px;
 }
 
-#edit span {
+#edit svg {
     font-size: 43px;
     font-weight: 700;
     color: #3BAEB8;
+    margin-left: 35px;
 }
 
 /* Теги */

@@ -76,11 +76,12 @@ body {
     border-bottom: none;
 }
 
-.notes > li span {
+.notes > li h2 {
     font-weight: 600;
     font-size: 15px;
     display: inline-block;
     margin-top: 25px;
+    margin-bottom: 0;
 }
 
 .notes > li p {
@@ -93,25 +94,39 @@ body {
 
 .note {
     overflow-y: scroll;
-    padding: 48px 83px;
+    padding: 48px 83px 0 83px;
 }
 
 .note::after {
     display: block;
     content: '';
-    height: 80px;
+    height: 60px;
 }
 
 .note h1 {
-    margin: 0;
+    margin: 18px 0;
     padding: 0;
     font-weight: bold;
     font-size: 28px;
 }
 
+.note h2 {
+    margin: 15px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.note h3 {
+    margin: 11px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .note p {
     /* в em`ах */
-    margin: 18px 0 18px; 
+    margin: 11px 0; 
     padding: 0;
     font-size: 15px;
     line-height: 1.8;
@@ -119,41 +134,54 @@ body {
 
 .note ol, .note ul {
     padding: 0;
-    margin: 16px 0 16px 16px;
+    margin: 11px 0;
     font-size: 15px;
     line-height: 1.8;
 }
 
-.note ul {
+.note ul, .note ol {
     list-style: none;
 }
 
 .note ul li::before {
     color: #3BAEB8;  
-    content: "\2022";
-    padding-right: 1.1225em;
+    /* content: "\2022"; */
+    content: "👉🏻";
+    padding-right: 1em;
     font-weight: 800;
-    position: relative;
-    margin-left: -1em;
 }
 
-/* как?? */
+.note ol {
+    counter-reset: counter;
+}
+
+.note ol li {
+    counter-increment: counter;
+}
+
+.note ol li::before {
+    content: counter(counter) ". ";
+    padding-right: 1em;
+}
 
 .block-edit {
     height: 40px;
-    background-color: #E0E0E0;
+    margin-left: 83px;
+    background-color: #eeeeee;
     border-radius: 6px;
-    width: 550px;
+    width: 100%;
+    animation: ease-in;
+    animation-duration: 0.5s;
 }
 
 .edit {
     display: flex;
+    position: absolute;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 30px;
-    height: 60px;
+    height: 80px;
+    width: 100%;
     min-height: 60px;
-    position: absolute;
     right: 0;
     bottom: 0;
 }
@@ -162,11 +190,20 @@ body {
     font-size: 43px;
     font-weight: 700;
     color: #3BAEB8;
-    margin-left: 35px;
+    margin: 0 32px;
     -moz-appearance: none;
     -webkit-appearance: none;
     border: none;
     background: none;
+    padding: 0;
+}
+
+.edit button:hover {
+    cursor: pointer;
+}
+
+button > svg {
+    margin-bottom: 6px;
 }
 
 /* Теги */

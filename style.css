@@ -146,7 +146,7 @@ body {
 .note ul li::before {
     color: #3BAEB8;  
     /* content: "\2022"; */
-    content: "👉🏻";
+    content: "😎";
     padding-right: 1em;
     font-weight: 800;
 }

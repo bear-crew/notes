@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=cyrillic');
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -47,11 +47,15 @@ body {
 
 .search-field {
     height: 30px;
-    width: 198px;
+    width: 187px;
     border-radius: 6px;
     border: 1px solid #E0E0E0;
     font-size: 15px;
-    padding: 0 11px;
+    font-weight: 300;
+    padding-left: 32px;
+    background-image: url(icons/search.svg);
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
 }
 
 .notes {
@@ -144,7 +148,7 @@ body {
 }
 
 .note ul li::before {
-    color: #3BAEB8;  
+    color: #3C92CA;
     /* content: "\2022"; */
     content: "😎";
     padding-right: 1em;
@@ -165,13 +169,18 @@ body {
 }
 
 .block-edit {
+    visibility: hidden;
+    width: 0;
+    opacity: 0;
     height: 40px;
     margin-left: 83px;
-    background-color: #eeeeee;
+    /* background-color: #F0F0F0; */
+    background-color: white;
+    border: #E0E0E0 1px solid;
     border-radius: 6px;
-    width: 100%;
-    animation: ease-in;
-    animation-duration: 0.5s;
+    box-shadow: #B5B5B5 0px 3px 5px -1px;
+    transition: linear;
+    transition-duration: 0.2s;
 }
 
 .edit {
@@ -189,8 +198,7 @@ body {
 .edit button {
     font-size: 43px;
     font-weight: 700;
-    color: #3BAEB8;
-    margin: 0 32px;
+    margin: 0 30px;
     -moz-appearance: none;
     -webkit-appearance: none;
     border: none;
@@ -203,7 +211,7 @@ body {
 }
 
 button > svg {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 /* Теги */

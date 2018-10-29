@@ -30,7 +30,7 @@ body {
 #editor {
     position: relative;
     max-width: 716px;
-    min-width: 300px;
+    min-width: 500px;
     margin-left: -1px;
     margin-right: 20px;
 }
@@ -40,9 +40,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 89px;
+    min-height: 70px;
     border-bottom: 1px solid #E0E0E0;
     border-radius: 6px 6px 0 0;
+}
+
+#editor .top-notch {
+    justify-content: space-between;
 }
 
 .search-field {
@@ -169,10 +173,14 @@ body {
 }
 
 .block-edit {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     visibility: hidden;
     width: 0;
     opacity: 0;
-    height: 40px;
+    padding: 1px 25px 0 25px;
+    height: 44px;
     margin-left: 83px;
     /* background-color: #F0F0F0; */
     background-color: white;
@@ -195,23 +203,54 @@ body {
     bottom: 0;
 }
 
-.edit button {
-    font-size: 43px;
-    font-weight: 700;
-    margin: 0 30px;
+/* .edit button:not(.button-edit) {
+    width: 25px;
+} */
+
+button {
     -moz-appearance: none;
     -webkit-appearance: none;
     border: none;
     background: none;
     padding: 0;
+    margin: 0;
 }
 
-.edit button:hover {
+.edit .button-edit {
+    font-size: 43px;
+    font-weight: 700;
+    margin: 0 30px;
+}
+
+button:hover {
     cursor: pointer;
 }
 
-button > svg {
+.button-edit > svg {
     margin-bottom: 4px;
+}
+
+.left-edit, .left-edit > button {
+    height: 34px;
+}
+
+.right-edit, .right-edit > button {
+    height: 25px;
+}
+
+.left-edit, .right-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-edit {
+    margin-left: 18px;
+}
+
+.right-edit {
+    margin-right: 18px;
+    width: 70px;
 }
 
 /* Теги */

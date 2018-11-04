@@ -76,6 +76,22 @@ body {
     overflow-y: scroll;
 }
 
+.notes::-webkit-scrollbar {
+    width: 5px;
+    padding-right: 10px;
+}
+
+.notes::-webkit-scrollbar-thumb
+{
+  border-radius: 5px;
+  background-color: gray;
+}
+
+.notes::-webkit-scrollbar-track
+{
+  border-radius: 5px;
+}
+
 .notes > li {
     position: relative;
     list-style-type: none;
@@ -92,12 +108,26 @@ body {
     border-bottom: none;
 }
 
+.notes > li .out{
+    display: inline-block;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
 .notes > li h2 {
     font-weight: 600;
     font-size: 15px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.notes > li button {
     display: inline-block;
-    margin-top: 25px;
-    margin-bottom: 0;
+    margin-right: 9px;
+    height: 16px;
+    margin-top: 2px;
+    float: left;
+    vertical-align: middle;
 }
 
 .notes > li p {
@@ -262,6 +292,8 @@ button:hover {
     margin-right: 18px;
     width: 70px;
 }
+
+
 
 /* Теги */
 /* .tag {

@@ -81,15 +81,13 @@ body {
     padding-right: 10px;
 }
 
-.notes::-webkit-scrollbar-thumb
-{
-  border-radius: 5px;
-  background-color: gray;
+.notes::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: gray;
 }
 
-.notes::-webkit-scrollbar-track
-{
-  border-radius: 5px;
+.notes::-webkit-scrollbar-track {
+    border-radius: 5px;
 }
 
 .notes > li {
@@ -97,7 +95,7 @@ body {
     list-style-type: none;
     border-bottom: 1px solid #E0E0E0;
     padding: 0 19px;
-    padding-bottom: 22px;
+    padding-bottom: 18px;
 }
 
 .notes > li:hover {
@@ -110,7 +108,7 @@ body {
 
 .notes > li .out{
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 23px;
     margin-bottom: 5px;
 }
 
@@ -122,8 +120,7 @@ body {
 }
 
 .notes > li button {
-    display: inline-block;
-    margin-right: 9px;
+    margin-right: 6px;
     height: 16px;
     margin-top: 2px;
     float: left;

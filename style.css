@@ -119,12 +119,34 @@ body {
     vertical-align: middle;
 }
 
-.notes > li button {
-    margin-right: 6px;
+.plus {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    margin-right: 0px;
     height: 16px;
     margin-top: 2px;
     float: left;
     vertical-align: middle;
+    transition: linear;
+    transition-duration: 0.1s;
+
+}
+
+.notes > li:hover .plus {
+    width: 17px;
+    opacity: 1;
+    margin-right: 6px;
+    visibility: visible;
+    transition: linear;
+    transition-duration: 0.1s;
+}
+
+.pin {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+
 }
 
 .notes > li p {

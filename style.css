@@ -14,7 +14,7 @@ body {
     background-color: #F7F8F9;
 }
 
-#menu, #editor {
+#menu, #note-editor {
     display: inline-flex;
     flex-direction: column;
     height: 92vh;
@@ -31,9 +31,10 @@ body {
     border-radius: 6px;
 }
 
-#editor {
+#note-editor, #editor {
     position: relative;
     max-width: 716px;
+    width: 716px;
     min-width: 500px;
     /* margin-left: -1px; */
     margin-right: 20px;
@@ -50,7 +51,7 @@ body {
     border-radius: 6px 6px 0 0;
 }
 
-#editor .top-notch {
+#note-editor .top-notch {
     justify-content: space-between;
 }
 
@@ -185,39 +186,39 @@ body {
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 } */
 
-.note {
+.note, .ql-editor {
     overflow-y: scroll;
     padding: 48px 83px 0 83px;
 }
 
-.note::after {
+.note::after, .ql-editor::after {
     display: block;
     content: '';
     height: 60px;
 }
 
-.note h1 {
+.note h1, .ql-editor h1 {
     margin: 18px 0;
     padding: 0;
     font-weight: bold;
     font-size: 28px;
 }
 
-.note h2 {
+.note h2, .ql-editor h2 {
     margin: 15px 0;
     padding: 0;
     font-weight: bold;
     font-size: 24px;
 }
 
-.note h3 {
+.note h3, .ql-editor h3 {
     margin: 11px 0;
     padding: 0;
     font-weight: bold;
     font-size: 20px;
 }
 
-.note p {
+.note p, .ql-editor p {
     /* в em`ах */
     margin: 11px 0; 
     padding: 0;
@@ -225,18 +226,15 @@ body {
     line-height: 1.8;
 }
 
-.note ol, .note ul {
+.note ol, .note ul, .ql-editor ol, .ql-editor ul {
     padding: 0;
     margin: 11px 0;
     font-size: 15px;
     line-height: 1.8;
-}
-
-.note ul, .note ol {
     list-style: none;
 }
 
-.note ul li::before {
+.note ul li::before, .ql-editor ul li::before{
     color: #3C92CA;
     /* content: "\2022"; */
     content: "😎";
@@ -244,15 +242,15 @@ body {
     font-weight: 800;
 }
 
-.note ol {
+.note ol, .ql-editor ol {
     counter-reset: counter;
 }
 
-.note ol li {
+.note ol li, .ql-editor ol li {
     counter-increment: counter;
 }
 
-.note ol li::before {
+.note ol li::before, .ql-editor ol li::before {
     content: counter(counter) ". ";
     padding-right: 1em;
 }
@@ -318,7 +316,7 @@ button:hover {
 }
 
 .left-edit, .left-edit > button {
-    height: 34px;
+    height: 35px;
 }
 
 .right-edit, .right-edit > button {

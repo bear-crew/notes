@@ -5,7 +5,7 @@ import MainEditor from '../MainEditor/maineditor';
 class Application extends Component {
     state = { 
         loginState: false
-     }
+    }
     
     checkLogin () {
         let localData = {
@@ -24,14 +24,14 @@ class Application extends Component {
               })
               .then(function(res) {
                     if(res.status != 500 && res.status != 401 && res.body.user == localData.username){
-                        //обновить токен
+                        //TODO: обновить токен
                         return true
                     }
                     else 
                         return false
               });
             
-            //в зависимости от запроса определяем loginState
+            //TODO: в зависимости от запроса определяем loginState
         }
         else
             return false;

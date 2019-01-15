@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Aside from '../Aside/aside';
 import MainEditor from '../MainEditor/maineditor';
-//import ReactEditor from '../ReactEditor/reacteditor';
 
 class Application extends Component {
     state = { 

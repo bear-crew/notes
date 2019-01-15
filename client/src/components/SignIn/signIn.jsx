@@ -10,7 +10,7 @@ class SignIn extends Component {
             password: '',
         };
       
-        this.logOn = this.logOn.bind(this);
+        this.logIn = this.logIn.bind(this);
     }
     
     updateEmail(e) {
@@ -21,7 +21,7 @@ class SignIn extends Component {
         this.setState({password: e.target.value})
     }
 
-    logOn() {
+    logIn() {
         console.log(this.state.email)
         console.log(this.state.password)
     }
@@ -32,7 +32,7 @@ class SignIn extends Component {
                 <p>Save your notes in a cloud right now</p>
                 <input value = {this.state.email} type="email" placeholder="your@email.com" className="login-input" onChange={(e) => {this.updateEmail(e); }}></input>
                 <input value = {this.state.password} type="password" placeholder="password" className="login-input" onChange={(e) => {this.updatePassword(e); }}></input>
-                <button type="button" className="login-button" onClick={this.logOn}>Login</button> 
+                <button type="button" className="login-button" onClick={this.logIn}>Login</button> 
             </div>
         ]
     }

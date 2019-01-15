@@ -33,7 +33,22 @@
     font-size: 15px;
     font-weight: 400;
     border: none;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    color: #868686;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #868686;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #868686;
+    opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+    color: #868686;
+    opacity: 1;
 }
 
 .login-input:focus {
@@ -58,4 +73,8 @@
 
 .login-button:hover {
     cursor: pointer;
+}
+
+.login-button:focus {
+    outline: none;
 }

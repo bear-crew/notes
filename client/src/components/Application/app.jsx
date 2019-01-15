@@ -39,11 +39,11 @@ class Application extends Component {
     }
 
     componentWillMount () {
-        this.setState({loginState: checkLogin()})
+        this.setState({loginState: this.checkLogin()})
     }
 
     componentWillUpdate () {
-        this.setState({loginState: checkLogin()})
+        this.setState({loginState: this.checkLogin()})
     }
     render() { 
         if(this.state.loginState)

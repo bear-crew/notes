@@ -5,7 +5,7 @@ import MainEditor from '../MainEditor/maineditor';
 
 class Application extends Component {
     state = { 
-        loginState
+        loginState: false
      }
     
     checkLogin () {

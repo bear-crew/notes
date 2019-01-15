@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Aside from '../Aside/aside';
 import MainEditor from '../MainEditor/maineditor';
+import SignIn from '../SignIn/signIn';
 
 class Application extends Component {
     state = { 
@@ -52,7 +53,8 @@ class Application extends Component {
             ];
         else
             return (
-                <MainEditor />
+                <SignIn />
+                /* <MainEditor /> */
             );
     }
 }

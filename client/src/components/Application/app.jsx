@@ -46,10 +46,15 @@ class Application extends Component {
         this.setState({loginState: checkLogin()})
     }
     render() { 
-        return [
-            <Aside />,
-            <MainEditor />
-        ];
+        if(this.state.loginState)
+            return [
+                <Aside />,
+                <MainEditor />
+            ];
+        else
+            return (
+                <MainEditor />
+            );
     }
 }
  

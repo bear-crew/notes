@@ -38,9 +38,9 @@
 
 .login-input:focus {
     outline: none;   
-    -webkit-box-shadow:inset 0px 0px 0px 1px #eef0f2;
-    -moz-box-shadow:inset 0px 0px 0px 1px #eef0f2;
-    box-shadow:inset 0px 0px 0px 1px #eef0f2;
+    -webkit-box-shadow:inset 0px 0px 0px 1px #e0e0e0;
+    -moz-box-shadow:inset 0px 0px 0px 1px #e0e0e0;
+    box-shadow:inset 0px 0px 0px 1px #e0e0e0;
     background-color: white;
 }
 

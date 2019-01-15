@@ -1,0 +1,31 @@
+{
+  "name": "user-managament-example",
+  "author": "Ismail Valiev <whiteshieldsoftware@gmail.com> (http://whiteshieldsoftware.blogspot.ru)",
+  "version": "0.1.0",
+  "description": "Simple user managament example using Web Tokens",
+  "dependencies": {
+    "@types/bluebird": "^3.5.24",
+    "bcrypt": "^0.8.7",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jwt-simple": "^0.5.5",
+    "mongoose": "^4.13.17",
+    "morgan": "^1.7.0",
+    "node-gyp": "^3.8.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konrad-molitor/user_managament.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/konrad-molitor/user_managament/issues"
+  },
+  "homepage": "https://github.com/konrad-molitor/user_managament#readme"
+}

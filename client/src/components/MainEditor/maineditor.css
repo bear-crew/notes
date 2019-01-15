@@ -1,0 +1,198 @@
+
+#note-editor {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    height: 92vh;
+    border: 1px solid #E0E0E0;
+    box-shadow: rgba(0, 0, 0, 0.10) 0 0 4px 0;
+    background-color: white;
+}
+
+#note-editor, #editor {
+    max-width: 716px;
+    width: 716px;
+    min-width: 500px;
+    /* margin-left: -1px; */
+    margin-right: 20px;
+    border-radius: 6px;
+}
+
+#editor {
+    height: 100%;
+    display: inline-flex;
+    width: 100%;
+  }
+
+.top-notch {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    /* border-bottom: 1px solid #E0E0E0; */
+    border-radius: 6px 6px 0 0;
+}
+
+#note-editor .top-notch {
+    justify-content: space-between;
+}
+
+.note, .ql-editor {
+    overflow-y: scroll;
+    padding: 48px 83px 0 83px;
+}
+
+.note::after, .ql-editor::after {
+    display: block;
+    content: '';
+    height: 60px;
+}
+
+.note h1, .ql-editor h1 {
+    margin: 18px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.note h2, .ql-editor h2 {
+    margin: 15px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.note h3, .ql-editor h3 {
+    margin: 11px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.note p, .ql-editor p {
+    /* в em`ах */
+    margin: 11px 0; 
+    padding: 0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.note ol, .note ul, .ql-editor ol, .ql-editor ul {
+    padding: 0;
+    margin: 11px 0;
+    font-size: 15px;
+    line-height: 1.8;
+    list-style: none;
+}
+
+.note ul li::before, .ql-editor ul li::before{
+    color: #3C92CA;
+    /* content: "\2022"; */
+    content: "😎";
+    padding-right: 1em;
+    font-weight: 800;
+}
+
+.note ol, .ql-editor ol {
+    counter-reset: counter;
+}
+
+.note ol li, .ql-editor ol li {
+    counter-increment: counter;
+}
+
+.note ol li::before, .ql-editor ol li::before {
+    content: counter(counter) ". ";
+    padding-right: 1em;
+}
+
+.block-edit {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    visibility: hidden;
+    width: 0;
+    opacity: 0;
+    padding: 1px 25px 0 25px;
+    height: 44px;
+    margin-left: 83px;
+    /* background-color: #F0F0F0; */
+    background-color: white;
+    border: #E0E0E0 1px solid;
+    border-radius: 6px;
+    box-shadow: #B5B5B5 0px 3px 5px -1px;
+    transition: linear;
+    transition-duration: 0.2s;
+}
+
+.edit {
+    display: flex;
+    flex-shrink: 1;
+    position: absolute;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    min-height: 60px;
+    right: 0;
+    bottom: 0;
+}
+
+button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.edit .button-edit {
+    flex-shrink: 1;
+    font-size: 43px;
+    font-weight: 700;
+    margin: 0 30px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.button-edit > svg {
+    margin-bottom: 4px;
+}
+
+.left-edit, .left-edit > button {
+    height: 35px;
+}
+
+.right-edit, .right-edit > button {
+    height: 25px;
+}
+
+.left-edit, .right-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-edit {
+    margin-left: 18px;
+}
+
+.right-edit {
+    margin-right: 18px;
+    width: 70px;
+}
+
+.user-pic {
+    height: 34px;
+    border-radius: 34px;
+    margin-right: 11px;
+}
+
+.user-name {
+    font-size: 13px;
+    font-weight: 600;
+}

@@ -1,0 +1,3 @@
+module.exports = {
+    'secretkey': 'defaultSecretKey'
+}

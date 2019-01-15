@@ -1,0 +1,14 @@
+#menu {
+    display: inline-flex;
+    flex-direction: column;
+    height: 92vh;
+    border: 1px solid #E0E0E0;
+    box-shadow: rgba(0, 0, 0, 0.10) 0 0 4px 0;
+    background-color: white;
+    min-width: 260px;
+    width: 260px;
+    margin-left: 20px;
+    margin-right: 8px;
+    border-radius: 6px;
+}
+

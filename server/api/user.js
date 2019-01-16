@@ -22,14 +22,14 @@ router.post('/user', function (req, res, next){
     user.username = req.body.username
     const password = req.body.password
 
-    console.log("1: ", user.username, password);
-    console.log("2: ", req.body.username, req.body.password);
     bcrypt.hash(password, 10, function(err, hash){
-        if (err){res.sendStatus(500)}
+        if (err){
+            res.sendStatus(500)}
         else {
             user.password = hash
             user.save(function (err) {
-                if (err) {res.sendStatus(500)}
+                if (err) {
+                    res.sendStatus(500)}
                 else {
                     res.sendStatus(201)
                 }

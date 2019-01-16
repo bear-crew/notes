@@ -5,8 +5,12 @@ class UserMenu extends Component {
     state = {  }
     render() { 
         return (
-            <div class="bubble">
-                
+            <div className="bubble">
+                <img src="photo.jpg" alt="Profile picture"/>
+                <div className="name-and-signout">
+                    <p className="bubble-username">fowkuasdas</p>
+                    <a href="/logout"><button type="button" className="logout-button">Sign out</button></a>
+                </div>
             </div>
         );
     }

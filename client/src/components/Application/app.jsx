@@ -42,9 +42,10 @@ class Application extends Component {
         this.setState({loginState: this.checkLogin()})
     }
 
-    componentWillUpdate () {
-        this.setState({loginState: this.checkLogin()})
-    }
+    // componentWillUpdate () {
+    //     this.setState({loginState: this.checkLogin()})
+    // }
+
     render() { 
         if(this.state.loginState)
             return [

@@ -35,10 +35,10 @@ class SignIn extends Component {
             })
             .then(function(res) {
                 if(res.status != 500 && res.status != 401){
-                    console.log(res.text().then(function(result) {
+                    res.text().then(function(result) {
                         localStorage.setItem('token', result);
                         //console.log(localStorage.getItem('token'));
-                    }));
+                    });
 
                     return true
                 }

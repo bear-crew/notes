@@ -8,14 +8,13 @@ import ReactEditor from './components/ReactEditor/reacteditor';
 import SignIn from './components/SignIn/signIn';
 import {Route, BrowserRouter, Link} from 'react-router-dom';
 
-render((
+ReactDOM.render((
     <BrowserRouter>
         <Route path="/" component={Application}>
-            <Route path="signin" component={SignIn}/>
+            <Route path="/signin" component={SignIn}/>
         </Route>
     </BrowserRouter>
-    
-    ), document.getElementById('app'));
+), document.getElementById('app'));
 
 //ReactDOM.render(<ReactEditor />, document.getElementById('app'));
 

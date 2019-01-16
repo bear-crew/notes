@@ -14,7 +14,7 @@ class Application extends Component {
             token: localStorage.getItem('token')
         }
 
-        if(localData.login && localData.token) {
+        if(localData.token) {
             fetch('http://localhost:3001/account', {
                 method: 'get',
                 headers: {
@@ -23,7 +23,7 @@ class Application extends Component {
                 }
             })
             .then(function(res) {
-                if(res.status != 500 && res.status != 401 && res.body.user == localData.username){
+                if(res.status != 500 && res.status != 401){
                     //TODO: обновить токен
                     console.log('NEW TOKEN');
                     return true
@@ -31,8 +31,6 @@ class Application extends Component {
                 else 
                     return false
             });
-            
-            //TODO: в зависимости от запроса определяем loginState
         }
         else
             return false;
@@ -50,11 +48,11 @@ class Application extends Component {
         if(this.state.loginState)
             return [
                 <Aside />,
-                <MainEditor />
+                <MainEditor loginState = {true}/>
             ];
         else
             return (
-                <SignIn />
+                <MainEditor loginState = {false} />
                 /* <MainEditor /> */
             );
     }

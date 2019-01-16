@@ -54,7 +54,7 @@ class SignIn extends Component {
                 <p>Save your notes in a cloud right now</p>
                 <input value = {this.state.email} type="email" placeholder="your@email.com" className="login-input" onChange={(e) => {this.updateEmail(e); }}></input>
                 <input value = {this.state.password} type="password" placeholder="password" className="login-input" onChange={(e) => {this.updatePassword(e); }}></input>
-                <button type="button" className="login-button" onClick={this.logOn}>Login</button> 
+                <button type="button" className="_login-button" onClick={this.logOn}>Login</button> 
             </div>
         ]
     }

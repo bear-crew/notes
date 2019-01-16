@@ -5,7 +5,7 @@ import './topnotch.css'
 class TopNotch extends Component {
 
     render() {
-        const login = !this.props.loginState && <button type="button" className="login-button">Login</button>
+        const login = !this.props.loginState && <a href="/signin"><button type="button" className="login-button">Login</button></a>
         const userpic = this.props.loginState && <button type="button" className="user-button"><img src="photo.jpg" className="user-pic"/></button>
         const username = this.props.loginState && <div className="user-name">fowku</div>  
         return(

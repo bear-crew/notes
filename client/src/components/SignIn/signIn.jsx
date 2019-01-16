@@ -37,6 +37,7 @@ class SignIn extends Component {
                 if(res.status != 500 && res.status != 401){
                     res.text().then(function(result) {
                         localStorage.setItem('token', result);
+                        //TODO: Тут нужно как-то передать пропсы (логин) в TopNotch и вернуться на главную
                         //console.log(localStorage.getItem('token'));
                     });
 

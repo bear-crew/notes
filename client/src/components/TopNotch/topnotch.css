@@ -48,3 +48,7 @@
 .user-button {
     height: 35px;
 }
+
+.user-button:focus {
+    outline: none;
+}

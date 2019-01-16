@@ -57,3 +57,7 @@
     border-radius: 5px;
     font-weight: 600;
 }
+
+.logout-button:focus {
+    outline: none;
+}

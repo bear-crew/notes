@@ -14,23 +14,22 @@ class Application extends Component {
             token: localStorage.getItem('token')
         }
 
-        if(localData.login && localData.token){
-            //запрос
+        if(localData.login && localData.token) {
             fetch('http://localhost:3001/account', {
                 method: 'get',
                 headers: {
                     'Content-Type':'application/json',
                     'x-auth': localData.token
                 }
-              })
-              .then(function(res) {
-                    if(res.status != 500 && res.status != 401 && res.body.user == localData.username){
-                        //TODO: обновить токен
-                        return true
-                    }
-                    else 
-                        return false
-              });
+            })
+            .then(function(res) {
+                if(res.status != 500 && res.status != 401 && res.body.user == localData.username){
+                    //TODO: обновить токен
+                    return true
+                }
+                else 
+                    return false
+            });
             
             //TODO: в зависимости от запроса определяем loginState
         }

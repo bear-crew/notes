@@ -18,9 +18,12 @@ const config = require('../config')
  * При удаче - возвращает 201
  */
 router.post('/user', function (req, res, next){
-    const user = new User
+    let user = new User
     user.username = req.body.username
     const password = req.body.password
+
+    console.log("1: ", user.username, password);
+    console.log("2: ", req.body.username, req.body.password);
     bcrypt.hash(password, 10, function(err, hash){
         if (err){res.sendStatus(500)}
         else {

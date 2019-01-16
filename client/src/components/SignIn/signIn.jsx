@@ -22,8 +22,27 @@ class SignIn extends Component {
     }
 
     logOn() {
-        console.log(this.state.email)
-        console.log(this.state.password)
+        if (this.state.email != '' && this.state.password != '') {
+            fetch('http://localhost:3001/login', {
+                method: 'post',
+                headers: {
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({
+                    email: this.state.email,
+                    password: this.state.password
+                })
+            })
+            .then(function(res) {
+                if(res.status != 500 && res.status != 401){
+                    //TODO: обновить токен
+                    console.log(res.body.token);
+                    return true
+                }
+                else 
+                    return false
+            });
+        }
     }
 
     render() {

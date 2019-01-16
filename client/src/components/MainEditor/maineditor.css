@@ -147,15 +147,6 @@ button {
     margin: 0;
 }
 
-.login-button {
-    width: 58px;
-    height: 28px;
-    border: 1px solid black;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 700;
-}
-
 .edit .button-edit {
     flex-shrink: 1;
     font-size: 43px;
@@ -169,38 +160,4 @@ button:hover {
 
 .button-edit > svg {
     margin-bottom: 4px;
-}
-
-.user-button {
-    height: 35px;
-}
-
-.right-edit, .right-edit > button {
-    height: 25px;
-}
-
-.left-edit, .right-edit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.left-edit {
-    margin-left: 18px;
-}
-
-.right-edit {
-    margin-right: 18px;
-    width: 70px;
-}
-
-.user-pic {
-    height: 34px;
-    border-radius: 34px;
-    margin-right: 11px;
-}
-
-.user-name {
-    font-size: 13px;
-    font-weight: 600;
 }

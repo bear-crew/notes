@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800&subset=cyrillic');
 
-body, #root {
+body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body, #root {
   background-color: #F7F8F9;
 }
 
-#app, #root {
+#app {
   margin: 0;
   padding: 0;
   display: flex;

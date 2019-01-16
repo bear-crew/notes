@@ -2,7 +2,7 @@
 const router = require('express').Router()
 
 // импортируем jwt для декодирования web-token'а
-const jwt = require('jwt-simple')
+const jwt = require('jsonwebtoken')
 
 // импортируем конфиг
 const config = require('../config')
@@ -18,7 +18,7 @@ router.get('/account', function(req, res, next){
     if (!req.headers['x-auth']) { return res.sendStatus(401)}
     let username 
     try {
-        username = jwt.decode(req.headers['x-auth'], config.secretkey).username
+        username = jwt.verify(req.headers['x-auth'], config.secretkey).data
     } catch(err) {
         return res.sendStatus(401)
     }    

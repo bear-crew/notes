@@ -73,10 +73,10 @@
     font-weight: 700;
 }
 
-.login-button:hover {
+._login-button:hover {
     cursor: pointer;
 }
 
-.login-button:focus {
+._login-button:focus{
     outline: none;
 }

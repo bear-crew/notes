@@ -7,6 +7,14 @@
     font-weight: 700;
 }
 
+.login-button:focus {
+    outline: none;
+}
+
+.login-button:hover {
+    cursor: pointer;
+}
+
 .right-edit, .right-edit > button {
     height: 25px;
 }

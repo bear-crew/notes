@@ -1,0 +1,8 @@
+.bubble {
+    width: 193px;
+    height: 112px;
+    background-image: url("./icons/bubble.svg");
+    position: absolute;
+    left: 0;
+    top: 70px;
+}

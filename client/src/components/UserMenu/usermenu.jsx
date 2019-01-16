@@ -8,7 +8,7 @@ class UserMenu extends Component {
             <div className="bubble">
                 <img src="photo.jpg" alt="Profile picture"/>
                 <div className="name-and-signout">
-                    <p className="bubble-username">fowkuasdas</p>
+                    <p className="bubble-username">fowku</p>
                     <a href="/logout"><button type="button" className="logout-button">Sign out</button></a>
                 </div>
             </div>

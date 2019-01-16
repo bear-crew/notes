@@ -5,7 +5,7 @@ const router = require('express').Router()
 const bcrypt = require('bcryptjs')
 
 // импортируем jwt чтобы создавать web-token'ы для последующей отправки пользователю
-const jwt = require('jwt-simple')
+const jwt = require('jsonwebtoken')
 
 // импортируем файл конфигурации
 const config = require('../config')
@@ -38,7 +38,7 @@ router.post ('/login', function(req, res, next){
                     return res.sendStatus(500)
                 }
                 if (!valid){ return res.sendStatus(401)}
-                const token = jwt.encode({username: email}, config.secretkey)
+                const token = jwt.sign({exp: Math.floor(Date.now() / 1000) + (60*60*36), data: email}, config.secretkey)
                 res.send(token)
             })
         })

@@ -21,12 +21,12 @@ const User = require('./models/user')
  */
 
 router.post ('/login', function(req, res, next){
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.username || !req.body.password) {
         return res.sendStatus(400) // если один или оба параметра запроса опущены, возвращаем 400 - Bad Request
     } else {
-        const email = req.body.email
+        const username = req.body.username
         const password = req.body.password
-        User.findOne({username: email})
+        User.findOne({username: username})
         .select('password') // указываем явно, что нам нужно значение поля password (ибо его выборка отключена в модели)
         .exec(function(err, user){
             if (err) {
@@ -38,7 +38,7 @@ router.post ('/login', function(req, res, next){
                     return res.sendStatus(500)
                 }
                 if (!valid){ return res.sendStatus(401)}
-                const token = jwt.sign({exp: Math.floor(Date.now() / 1000) + (60*60*36), data: email}, config.secretkey)
+                const token = jwt.sign({exp: Math.floor(Date.now() / 1000) + (60*60*36), data: username}, config.secretkey)
                 res.send(token)
             })
         })

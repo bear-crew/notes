@@ -12,7 +12,7 @@ class Application extends Component {
     
     checkLogin() {
         let localData = {
-            username: localStorage.getItem('email'),
+            username: localStorage.getItem('username'),
             token: localStorage.getItem('token')
         }
 
@@ -43,7 +43,7 @@ class Application extends Component {
 
     componentDidMount() {
         let localData = {
-            username: localStorage.getItem('email'),
+            username: localStorage.getItem('username'),
             token: localStorage.getItem('token')
         }
 

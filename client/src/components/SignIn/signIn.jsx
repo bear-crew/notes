@@ -7,15 +7,15 @@ class SignIn extends Component {
         super(props);
       
         this.state = {
-            email: '',
+            username: '',
             password: '',
         };
       
         this.logOn = this.logOn.bind(this);
     }
     
-    updateEmail(e) {
-        this.setState({email: e.target.value})
+    updateUsername(e) {
+        this.setState({username: e.target.value})
     }
 
     updatePassword(e) {
@@ -23,14 +23,14 @@ class SignIn extends Component {
     }
 
     logOn() {
-        if (this.state.email != '' && this.state.password != '') {
+        if (this.state.username != '' && this.state.password != '') {
             fetch('http://localhost:3001/login', {
                 method: 'post',
                 headers: {
                     'Content-Type':'application/json'
                 },
                 body: JSON.stringify({
-                    email: this.state.email,
+                    username: this.state.username,
                     password: this.state.password
                 })
             })
@@ -38,7 +38,7 @@ class SignIn extends Component {
                 if(res.status != 500 && res.status != 401){
                     res.text().then(result => {
                         localStorage.setItem('token', result);
-                        localStorage.setItem('email', this.state.email);
+                        localStorage.setItem('username', this.state.username);
                         this.props.history.push("/");
                         console.log('Successfully Login');
                         //TODO: Тут нужно как-то передать пропсы (логин) в TopNotch и вернуться на главную
@@ -58,7 +58,7 @@ class SignIn extends Component {
         return[
             <div className="login-box">
                 <p>Save your notes in a cloud right now</p>
-                <input value = {this.state.email} type="email" placeholder="your@email.com" className="login-input" onChange={(e) => {this.updateEmail(e); }}></input>
+                <input value = {this.state.username} type="text" placeholder="Username" className="login-input" onChange={(e) => {this.updateUsername(e); }}></input>
                 <input value = {this.state.password} type="password" placeholder="password" className="login-input" onChange={(e) => {this.updatePassword(e); }}></input>
                 <button type="button" className="_login-button" onClick={this.logOn}>Login</button> 
             </div>

@@ -38,6 +38,7 @@ class SignIn extends Component {
                     res.text().then(function(result) {
                         localStorage.setItem('token', result);
                         //TODO: Тут нужно как-то передать пропсы (логин) в TopNotch и вернуться на главную
+                        // По идее у нас тут положится токен в локалсторейдж и при рендере app.jsx все должно отработать и вывести нормально имя
                         //console.log(localStorage.getItem('token'));
                     });
 

@@ -25,6 +25,7 @@ class Application extends Component {
             .then(function(res) {
                 if(res.status != 500 && res.status != 401 && res.body.user == localData.username){
                     //TODO: обновить токен
+                    console.log('NEW TOKEN');
                     return true
                 }
                 else 

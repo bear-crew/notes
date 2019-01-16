@@ -35,12 +35,11 @@ class SignIn extends Component {
             })
             .then(function(res) {
                 if(res.status != 500 && res.status != 401){
-                    //TODO: обновить токен
-                    // console.log(res.text().then(function(result) {
-                    //     console.log(result);
-                    // }));
+                    console.log(res.text().then(function(result) {
+                        localStorage.setItem('token', result);
+                        //console.log(localStorage.getItem('token'));
+                    }));
 
-                    console.log(res.json());
                     return true
                 }
                 else 

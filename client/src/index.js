@@ -10,12 +10,13 @@ import {Route, BrowserRouter, Link} from 'react-router-dom';
 
 render((
     <BrowserRouter>
-        <Route path="/" component={Application}>
-            <Route path="signin" component={SignIn}/>
-        </Route>
+        <div id="app">
+            <Route path="/" component={Application} exact/>
+            <Route path="/signin" component={SignIn}/>
+        </div>
     </BrowserRouter>
     
-    ), document.getElementById('app'));
+    ), document.getElementById('root'));
 
 //ReactDOM.render(<ReactEditor />, document.getElementById('app'));
 

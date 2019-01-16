@@ -47,7 +47,7 @@ class Application extends Component {
     // }
 
     render() { 
-        if(this.state.loginState)
+        if(!this.state.loginState)
             return [
                 <Aside />,
                 <MainEditor loginState = {true}/>

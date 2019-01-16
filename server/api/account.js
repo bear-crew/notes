@@ -16,13 +16,15 @@ const User = require('./models/user')
 
 router.get('/account', function(req, res, next){
     if (!req.headers['x-auth']) { return res.sendStatus(401)}
+    let username 
     try {
-        const username = jwt.decode(req.headers['x-auth'], config.secretkey).username
+        username = jwt.decode(req.headers['x-auth'], config.secretkey).username
     } catch(err) {
         return res.sendStatus(401)
-    }
+    }    
     User.findOne({username: username}, function(err, user){
         if (err) { 
+            console.log("tut")
             return res.sendStatus(500)
         } // ошибка БД, возвращаем 500 - Internal Server Error
         if (!user) { return res.sendStatus(401)} // пользователя нет в БД, возвращаем 401 - Unauthorized

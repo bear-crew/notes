@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './signIn.css';
+import { Redirect } from 'react-router-dom';
 
 class SignIn extends Component {
     constructor (props) {
@@ -33,10 +34,13 @@ class SignIn extends Component {
                     password: this.state.password
                 })
             })
-            .then(function(res) {
+            .then(res => {
                 if(res.status != 500 && res.status != 401){
-                    res.text().then(function(result) {
+                    res.text().then(result => {
                         localStorage.setItem('token', result);
+                        localStorage.setItem('email', this.state.email);
+                        this.props.history.push("/");
+                        console.log('Successfully Login');
                         //TODO: Тут нужно как-то передать пропсы (логин) в TopNotch и вернуться на главную
                         // По идее у нас тут положится токен в локалсторейдж и при рендере app.jsx все должно отработать и вывести нормально имя
                         //console.log(localStorage.getItem('token'));

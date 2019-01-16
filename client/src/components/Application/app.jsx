@@ -12,7 +12,7 @@ class Application extends Component {
     
     checkLogin () {
         let localData = {
-            username: localStorage.getItem('username'),
+            username: localStorage.getItem('email'),
             token: localStorage.getItem('token')
         }
 
@@ -27,6 +27,7 @@ class Application extends Component {
             .then(function(res) {
                 if(res.status != 500 && res.status != 401){
                     //TODO: обновить токен
+
                     console.log('NEW TOKEN');
                     return true
                 }
@@ -34,12 +35,14 @@ class Application extends Component {
                     return false
             });
         }
-        else
+        else {
             return false;
+        }
+            
     }
 
     componentWillMount () {
-        this.setState({loginState: this.checkLogin()})
+        this.setState({loginState: this.checkLogin})
     }
 
     // componentWillUpdate () {

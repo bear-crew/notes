@@ -8,7 +8,7 @@ import ReactEditor from './components/ReactEditor/reacteditor';
 import SignIn from './components/SignIn/signIn';
 import {Route, BrowserRouter, Link} from 'react-router-dom';
 
-render((
+ReactDOM.render((
     <BrowserRouter>
         <div id="app">
             <Route path="/" component={Application} exact/>

@@ -22,8 +22,7 @@ class SignIn extends Component {
     }
 
     logOn() {
-        console.log(this.state.email)
-        console.log(this.state.password)
+        
     }
 
     render() {

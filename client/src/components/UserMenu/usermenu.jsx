@@ -16,7 +16,7 @@ class UserMenu extends Component {
 
     render() { 
         return (
-            <div className="bubble">
+            <div className={this.props.shouldHide ? 'bubble hidden' : 'bubble'}>
                 <img src="photo.jpg" alt="Profile picture"/>
                 <div className="name-and-signout">
                 <p className="bubble-username">fowku</p>

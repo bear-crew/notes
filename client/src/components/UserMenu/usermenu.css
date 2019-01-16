@@ -7,6 +7,13 @@
     top: 70px;
     z-index: 1;
     display: flex;
+    transition: 0.3s;
+    opacity: 1;
+}
+
+.hidden {
+    display: hidden;
+    opacity: 0;
 }
 
 .bubble img {

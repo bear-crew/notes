@@ -10,11 +10,21 @@ import {Route, BrowserRouter, Link} from 'react-router-dom';
 
 ReactDOM.render((
     <BrowserRouter>
+<<<<<<< HEAD
         <Route path="/" component={Application}>
             <Route path="/signin" component={SignIn}/>
         </Route>
     </BrowserRouter>
 ), document.getElementById('app'));
+=======
+        <div id="app">
+            <Route path="/" component={Application} exact/>
+            <Route path="/signin" component={SignIn}/>
+        </div>
+    </BrowserRouter>
+    
+    ), document.getElementById('root'));
+>>>>>>> 6e9c76292de07d599b0e816ecff0c596453a1d84
 
 //ReactDOM.render(<ReactEditor />, document.getElementById('app'));
 

@@ -1,14 +1,28 @@
 .rdw-editor-wrapper {
     width: 100%;
+    display: flex;
 }
 
 .rdw-editor-toolbar {
+    width: 100%;
+    padding: 1px 25px 0 25px;
     position: absolute;
-    bottom: 18px;
-    right: 60px;
-    max-width: 500px;   
+    bottom: 33px;
+    right: 82px;
+    max-width: 498px;
     margin: 0;
-    
+    justify-content: space-between;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    z-index: 2;
 }
 
+.rdw-editor-main {
+    padding: 0 83px 0 83px;
+    width: 100%;
+}
 
+.DraftEditor-root {
+    height: auto;
+    width: 100%;
+}

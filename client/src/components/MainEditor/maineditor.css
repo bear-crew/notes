@@ -135,7 +135,7 @@
     width: 100%;
     min-height: 60px;
     right: 0;
-    bottom: 0;
+    bottom: 18px;
     pointer-events: none;
     z-index: 1;
 }

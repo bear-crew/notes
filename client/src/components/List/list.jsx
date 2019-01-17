@@ -6,7 +6,7 @@ class List extends Component {
     render() { 
         return (
             <ul className="notes">
-                <li>
+                {/* <li>
                     <div className="out">
                         <h2>Виктория Викторова</h2>
                     </div>   
@@ -32,7 +32,7 @@ class List extends Component {
                 <li><div className="out"><h2>Заметка 13</h2></div></li>
                 <li><div className="out"><h2>Заметка 14</h2></div></li>
                 <li><div className="out"><h2>Заметка 15</h2></div></li>
-                <li><div className="out"><h2>Заметка 16</h2></div></li>
+                <li><div className="out"><h2>Заметка 16</h2></div></li> */}
             </ul>
         );
     }

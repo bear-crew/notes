@@ -34,10 +34,23 @@ class ReactEditor extends React.Component {
     return (
       <Editor
         editorState={this.state.editorState}
-        toolbarClassName="toolbarClassName"
-        wrapperClassName="wrapperClassName"
-        editorClassName="editorClassName"
         onEditorStateChange={this.onEditorStateChange}
+        toolbarClassName="block-edit"
+        toolbar={{
+          options: ['inline', 'image', 'list', 'blockType', 'link'],
+          inline: {
+            inDropdown: false,
+            options: ['bold', 'italic']
+          },
+          blockType: {
+            inDropdown: false,
+            options: ['H1', 'H2', 'H3']
+          },
+          list: {
+            inDropdown: false,
+            options: ['unordered', 'ordered']
+          },
+        }}
       />
     )
   }

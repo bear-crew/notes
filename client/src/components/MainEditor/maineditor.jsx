@@ -27,11 +27,11 @@ class MainEditor extends Component {
             <main id="note-editor">
                 <TopNotch loginState = {this.props.loginState}/>
                 <div id="editor">
-                    {/* <ReactEditor /> */}
+                    <ReactEditor />
                 </div>
                 <div className="edit">
                     <div className="block-edit" style={{visibility: "hidden", width: 0, opacity: 0}}>
-                        <button type="button" className="ql-bold"></button>
+                        {/* <button type="button" className="ql-bold"></button>
                         <button type="button" className="ql-italic"></button>
                         <button type="button" className="ql-image"></button>
                         <button type="button" className="ql-list" value="bullet"></button>
@@ -39,7 +39,7 @@ class MainEditor extends Component {
                         <button type="button" className="ql-header" value="1"></button>
                         <button type="button" className="ql-header" value="2"></button>
                         <button type="button" className="ql-header" value="3"><svg width="23" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="#000" fill-rule="evenodd"><path d="M11.508 14.716H10.17v-6.61H1.928v6.61H.6V.625h1.328v6.27h8.242V.624h1.338zM16.214 8.007V6.875h1.64c.919 0 1.668-.254 2.247-.762.58-.508.87-1.156.87-1.943 0-.775-.276-1.402-.826-1.88-.55-.479-1.294-.718-2.231-.718-.873 0-1.596.24-2.168.723-.573.481-.896 1.113-.967 1.894h-1.29c.085-1.133.536-2.047 1.353-2.744C15.66.748 16.702.4 17.972.4c1.244 0 2.279.34 3.106 1.02.826.68 1.24 1.542 1.24 2.584 0 .878-.264 1.617-.791 2.216-.528.6-1.244.98-2.149 1.143v.039c1.081.065 1.942.408 2.583 1.03.642.622.962 1.43.962 2.427 0 .781-.215 1.484-.644 2.11-.43.624-1.016 1.11-1.758 1.454-.742.345-1.566.518-2.47.518-1.407 0-2.556-.361-3.448-1.084-.892-.723-1.36-1.654-1.406-2.793h1.289c.052.794.405 1.444 1.06 1.948.654.505 1.485.757 2.494.757 1.023 0 1.866-.27 2.53-.81.664-.54.996-1.228.996-2.061 0-.898-.326-1.605-.977-2.12-.65-.513-1.543-.77-2.675-.77h-1.7z"/></g></svg></button>
-                        <button type="button" className="ql-link"></button>
+                        <button type="button" className="ql-link"></button> */}
                     
                     </div>
                     <button className="button-edit" type="button" onClick={this.showHideEdit}>

@@ -12,7 +12,7 @@
 }
 
 .hidden {
-    display: hidden;
+    visibility: hidden;
     opacity: 0;
 }
 

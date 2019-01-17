@@ -1,14 +1,45 @@
 #menu {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     max-height: 92vh;
-    border: 1px solid #E0E0E0;
-    box-shadow: rgba(0, 0, 0, 0.10) 0 0 4px 0;
-    background-color: white;
     min-width: 260px;
     width: 260px;
     margin-left: 20px;
     margin-right: 8px;
     border-radius: 6px;
+    align-items: center;
 }
 
+.menu-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 10px;
+    width: 92px;
+    height: 64px;
+}
+
+.new-note {
+    background-image: url(./icons/plus.svg);
+    width: 44px;
+    height: 44px;
+}
+
+.delete-note {
+    background-image: url(./icons/bin.svg);
+    width: 44px;
+    height: 44px;
+}
+
+.aside-body {
+    display: inline-flex;
+    flex-direction: column;
+    max-height: calc(92vh - 54px);
+    border: 1px solid #E0E0E0;
+    box-shadow: rgba(0, 0, 0, 0.10) 0 0 4px 0;
+    background-color: white;
+    min-width: 260px;
+    width: 260px;
+    border-radius: 6px;
+}

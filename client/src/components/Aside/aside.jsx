@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import Search from '../Search/search';
-import './aside.css';
-import List from '../List/list'
 
+import './aside.css';
+import AsideBody from '../AsideBody/AsideBody';
 
 class Aside extends Component {
     state = {  }
     render() { 
         return (
             <aside id="menu">
-                <Search/>
-                <List/>
+                <AsideBody/>
+                <div className ="menu-buttons">
+                    <buton type="button" className="new-note"></buton>
+                    <buton type="button" className="delete-note"></buton>
+                </div>
             </aside>
         );
     }

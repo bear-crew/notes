@@ -3,18 +3,20 @@ const router = require('express').Router() // импортируем роуте�
 
 const User = require('./models/user')
 const Note = require('./models/note')
+const jwt = require('jsonwebtoken')
 // импортируем файл конфигурации (баловство, конечно, надо генерировать это на лету и хранить где-нибудь)
 const config = require('../config')
 
 
 
-router.post('/note', function (req, res, next) { // TODO: test 
+router.post('/note', function (req, res, next) { 
     const token = req.headers['x-auth'];
     const noteId = req.body.noteId;
     const userNote = req.body.note;
 
-    if (!token) 
+    if (!token) {
         return res.sendStatus(401);
+    }
 
     let _username;
     try {
@@ -29,19 +31,22 @@ router.post('/note', function (req, res, next) { // TODO: test
             Note.findOne({_id: noteId, username: _username}, function(err, note) {
                 if (err) 
                     return res.sendStatus(500);
-                else {
+                if (note) {
                     note.content = userNote;
                     note.save(function(err) {
                         if (err) 
-                            res.sendStatus(500);
+                            return res.sendStatus(500);
                         else
-                            res.sendStatus(200) // updated successfully
+                            return res.sendStatus(200); // updated successfully
                     })
+                }
+                else {
+                    return res.sendStatus(400);
                 }
             })
         }
         else { // user didn't send any content to update
-            res.sendStatus(400);
+            return res.sendStatus(400);
         }
     }
     else { // user didn't send any id
@@ -51,13 +56,13 @@ router.post('/note', function (req, res, next) { // TODO: test
             newNote.content = userNote;
             newNote.save(function(err) {
                 if (err) 
-                    res.sendStatus(500);
+                    return res.sendStatus(500);
                 else
-                    res.sendStatus(200);
+                    return res.sendStatus(200);
             })
         }
         else 
-            res.sendStatus(400);
+            return res.sendStatus(400);
     }
 })
 
@@ -75,10 +80,10 @@ router.get('/note', function (req, res, next) {
     }    
     
     Note.find({username: _username}, function(err, notes) {
-        if (err) {return res.sendStatus(500)}
-        else {
-            res.json(notes)
-        }
+        if (err) 
+            return res.sendStatus(500);
+        else 
+            return res.json(notes);
     })
    // return res.sendStatus(200);
 })
@@ -99,15 +104,19 @@ router.get('/deletenote', function(req, res, next) {
 
     if (noteId) {
         // delete note
-        Note.remove({_id: noteId, username: _username}, function(err) {
+        Note.remove({_id: noteId, username: _username}, function(err, result) {
             if (err) 
-                res.sendStatus(500);
+                return res.sendStatus(500);
             else
-                res.sendStatus(200);
+                if (result.n) {
+                    return res.sendStatus(200);
+                }
+                else
+                    return res.sendStatus(401);
         })
     }
     else
-        res.sendStatus(400);
+        return res.sendStatus(400);
 })
 
 module.exports = router

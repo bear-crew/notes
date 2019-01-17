@@ -27,7 +27,7 @@ class MainEditor extends Component {
             <main id="note-editor">
                 <TopNotch loginState = {this.props.loginState}/>
                 <div id="editor">
-                    <ReactEditor />
+                    {/* <ReactEditor /> */}
                 </div>
                 <div className="edit">
                     <div className="block-edit" style={{visibility: "hidden", width: 0, opacity: 0}}>

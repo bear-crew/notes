@@ -1,0 +1,14 @@
+.rdw-editor-wrapper {
+    width: 100%;
+}
+
+.rdw-editor-toolbar {
+    position: absolute;
+    bottom: 18px;
+    right: 60px;
+    max-width: 500px;   
+    margin: 0;
+    
+}
+
+

@@ -3,6 +3,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState } from 'draft-js';
 import {convertToRaw, convertFromRaw} from "draft-js";
+import './reacteditor.css';
 
 class ReactEditor extends React.Component {
   state = {

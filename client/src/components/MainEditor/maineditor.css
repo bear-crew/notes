@@ -29,7 +29,7 @@
     justify-content: center;
     align-items: center;
     min-height: 80px;
-    border-radius: 6px 6px 0 0;
+    border-radius: 6px;
 }
 
 #note-editor .top-notch {

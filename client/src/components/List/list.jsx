@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './list.css';    
+import './list.css';  
+import {connect} from 'react-redux';  
 
 class List extends Component {
     state = {  }
@@ -42,4 +43,12 @@ class List extends Component {
     }
 }
 
-export default List
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        noteId: state.noteId,
+        isOpen: state.isOpen
+    };
+};
+
+export default connect(mapStateToProps)(List);

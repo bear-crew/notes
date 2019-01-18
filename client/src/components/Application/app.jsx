@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Aside from '../Aside/aside';
 import MainEditor from '../MainEditor/maineditor';
+import {connect} from 'react-redux';
 
 class Application extends Component {
     state = { 
@@ -51,5 +52,13 @@ class Application extends Component {
     }
 }
 
-export default Application;
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        noteId: state.noteId,
+        isOpen: state.isOpen
+    };
+};
+
+export default connect(mapStateToProps)(Application);
 

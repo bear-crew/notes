@@ -19,11 +19,11 @@ class ReactEditor extends React.Component {
       content: convertToRaw(contentState)
     }
     request = JSON.stringify(request)
-    fetch('http://localhost:3001/note', {
-      method: 'post',
-      headers: {'Content-Type':'application/json'},
-      body: request
-    });
+    // fetch('http://localhost:3001/note', {
+    //   method: 'post',
+    //   headers: {'Content-Type':'application/json'},
+    //   body: request
+    // });
   }  
     // request = JSON.stringify(request);
     // sendData.open('POST', '/note', false);

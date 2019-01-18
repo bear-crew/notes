@@ -4,8 +4,13 @@ import './list.css';
 class List extends Component {
     state = {  }
     render() { 
+        console.log(this.props.noteList)
+        const list = this.props.noteList.map(
+            item => (<li key={item}><div className="out"><h2>{item.content.pole1}</h2></div><p>{item.content.pole2 ? item.content.pole2 : ""}</p></li>
+        ))
         return (
             <ul className="notes">
+                {list}
                 {/* <li>
                     <div className="out">
                         <h2>Виктория Викторова</h2>

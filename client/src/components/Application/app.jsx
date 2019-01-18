@@ -58,10 +58,7 @@ class Application extends Component {
             .then(res => {
                 if(res.status != 500 && res.status != 401){
                     //TODO: обновить токен
-
-                    console.log('NEW TOKEN');
                     this.setState({loginState: true})
-                    console.log(this.state.loginState)
                 }
                 else 
                     this.setState({loginState: false})

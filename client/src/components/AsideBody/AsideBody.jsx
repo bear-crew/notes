@@ -8,9 +8,9 @@ class AsideBody extends Component {
     state = {  }
     render() { 
         return (
-            <div class="aside-body">
+            <div className="aside-body">
                 <Search/>
-                <List/>
+                <List noteList = {this.props.noteList}/>
             </div>
         );
     }

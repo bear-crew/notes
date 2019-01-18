@@ -37,10 +37,6 @@ class Application extends Component {
             this.setState({loginState: false})
     }
 
-    // componentWillUpdate () {
-    //     this.setState({loginState: this.checkLogin()})
-    // }
-
     render() { 
         if(this.state.loginState)
             return [
@@ -54,6 +50,6 @@ class Application extends Component {
             );
     }
 }
- 
+
 export default Application;
 

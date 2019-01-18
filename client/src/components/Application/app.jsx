@@ -7,27 +7,29 @@ import {render} from 'react-dom';
 
 class Application extends Component {
     state = { 
-        loginState: false
+        loginState: false,
+        username: ''
     }
     
-    checkLogin() {
-        let localData = {
-            username: localStorage.getItem('username'),
-            token: localStorage.getItem('token')
-        }
+    checkLogin = () => {
+        const token = localStorage.getItem('token');
 
-        if(localData.token) {
+        if(token) {
             fetch('http://localhost:3001/account', {
                 method: 'get',
                 headers: {
                     'Content-Type':'application/json',
-                    'x-auth': localData.token
+                    'x-auth': token
                 }
             })
             .then(function(res) {
                 if(res.status != 500 && res.status != 401){
                     //TODO: обновить токен
-
+                    res.json().then(result => {
+                        if(result) {
+                            this.setState({username: result.user});
+                        }
+                    });
                     console.log('NEW TOKEN');
                     return true
                 }
@@ -42,17 +44,14 @@ class Application extends Component {
     }
 
     componentDidMount() {
-        let localData = {
-            username: localStorage.getItem('username'),
-            token: localStorage.getItem('token')
-        }
+        const token = localStorage.getItem('token');
 
-        if(localData.token) {
+        if(token) {
             fetch('http://localhost:3001/account', {
                 method: 'get',
                 headers: {
                     'Content-Type':'application/json',
-                    'x-auth': localData.token
+                    'x-auth': token
                 }
             })
             .then(res => {

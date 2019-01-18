@@ -10,25 +10,25 @@ class Aside extends Component {
 
     componentDidMount() {
         fetch('http://localhost:3001/note', {
-                method: 'get',
-                headers: {
-                    'Content-Type':'application/json',
-                    'x-auth': localStorage.getItem('token')
-                }
-            })
-            .then(res => {
-                if(res.status != 500 && res.status != 401) {
-                    res.json().then(result => {
-                        if(result) {
-                            console.log(result)
-                            console.log(result[0].content)
-                            let arr = []
-                            arr = result
-                            this.setState({noteList: arr})
-                        }
-                    })
-                }
-            })
+            method: 'get',
+            headers: {
+                'Content-Type':'application/json',
+                'x-auth': localStorage.getItem('token')
+            }
+        })
+        .then(res => {
+            if(res.status != 500 && res.status != 401) {
+                res.json().then(result => {
+                    if(result) {
+                        console.log(result)
+                        console.log(result[0].content)
+                        let arr = []
+                        arr = result
+                        this.setState({noteList: arr})
+                    }
+                })
+            }
+        })
     }
 
     render() { 

@@ -47,7 +47,6 @@ class Application extends Component {
         else
             return (
                 <MainEditor loginState = {false} />
-                /* <MainEditor /> */
             );
     }
 }
@@ -61,4 +60,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Application);
-

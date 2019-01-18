@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import SignIn from './components/SignIn/signIn';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, bindActionCreators } from 'redux';
 import { rootReducer } from './store/reducers';
 import { BrowserRouter, Route} from 'react-router-dom';
 import Application from './components/Application/app';

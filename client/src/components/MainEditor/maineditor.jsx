@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import './maineditor.css';
+import React, { Component } from 'react';
 import ReactEditor from '../ReactEditor/reacteditor';
 import TopNotch from '../TopNotch/topnotch';
 

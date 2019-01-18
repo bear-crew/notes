@@ -1,37 +1,30 @@
-// импортируем роутер
-const router = require('express').Router()
+const router = require('express').Router();
+const jwt = require('jsonwebtoken');
+const config = require('../config');
+const User = require('./models/user');
 
-// импортируем jwt для декодирования web-token'а
-const jwt = require('jsonwebtoken')
-
-// импортируем конфиг
-const config = require('../config')
-
-// импортируем модель user
-const User = require('./models/user')
-
-/**
- * Эта функция при попытке доступа к URL без корректного web-token'а возвращает 401. При наличии оного - возвращает имя пользователя.
- */
-
-router.get('/account', function(req, res, next){
-    if (!req.headers['x-auth']) { return res.sendStatus(401)}
+/* 
+    Returns username if token is valid, else 401.
+*/
+router.get('/account', function(req, res, next) {
+    if (!req.headers['x-auth']) 
+        return res.sendStatus(401);
 
     let username;
     
     try {
-        username = jwt.verify(req.headers['x-auth'], config.secretkey).data
+        username = jwt.verify(req.headers['x-auth'], config.secretkey).data;
     } catch(err) {
-        return res.sendStatus(401)
+        return res.sendStatus(401);
     }    
-    User.findOne({username: username}, function(err, user){
-        if (err) { 
-            console.log("tut")
-            return res.sendStatus(500)
-        } // ошибка БД, возвращаем 500 - Internal Server Error
-        if (!user) { return res.sendStatus(401)} // пользователя нет в БД, возвращаем 401 - Unauthorized
-        res.json(user) // если всё в порядке, возвращаем JSON с user
+    User.findOne({username: username}, function(err, user) {
+        if (err) { // DB error
+            return res.sendStatus(500);
+        } 
+        if (!user)
+            return res.sendStatus(401) // theres is no such user in DB, return 401 - Unauthorized
+        res.json(user) // everything is ok, return user
     })
 })
 
-module.exports = router
+module.exports = router;

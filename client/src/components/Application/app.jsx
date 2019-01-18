@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Aside from '../Aside/aside';
 import MainEditor from '../MainEditor/maineditor';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeNoteId, changeIsOpen } from '../../store/actions';
 
 class Application extends Component {
     state = { 
@@ -39,6 +41,9 @@ class Application extends Component {
     }
 
     render() { 
+        const dispatch = this.props.dispatch;
+        const { noteId, isOpen, changeNoteId, changeIsOpen } = this.props;
+
         if(this.state.loginState)
             return [
                 <Aside />,
@@ -51,12 +56,18 @@ class Application extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state);
+const putStateToProps = (state) => {
     return {
         noteId: state.noteId,
         isOpen: state.isOpen
     };
 };
 
-export default connect(mapStateToProps)(Application);
+const putActionsToProps = (dispatch) => {
+    return {
+        changeNoteId: bindActionCreators(changeNoteId, dispatch),
+        changeIsOpen: bindActionCreators(changeIsOpen, dispatch)
+    };
+};
+
+export default connect(putStateToProps, putActionsToProps)(Application);

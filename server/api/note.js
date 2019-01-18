@@ -1,28 +1,22 @@
-
-const router = require('express').Router() // импортируем роутер
-
-const User = require('./models/user')
-const Note = require('./models/note')
-const jwt = require('jsonwebtoken')
-// импортируем файл конфигурации (баловство, конечно, надо генерировать это на лету и хранить где-нибудь)
-const config = require('../config')
-
-
+const router = require('express').Router();
+const User = require('./models/user');
+const Note = require('./models/note');
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 router.post('/note', function (req, res, next) { 
     const token = req.headers['x-auth'];
     const noteId = req.body.noteId;
     const userNote = req.body.note;
 
-    if (!token) {
+    if (!token) 
         return res.sendStatus(401);
-    }
 
     let _username;
     try {
         _username = jwt.verify(token, config.secretkey).data;
     } catch(err) {
-        return res.sendStatus(401)
+        return res.sendStatus(401);
     }    
 
     if (noteId) {
@@ -76,7 +70,7 @@ router.get('/note', function (req, res, next) {
     try {
         _username = jwt.verify(token, config.secretkey).data;
     } catch(err) {
-        return res.sendStatus(401)
+        return res.sendStatus(401);
     }    
     
     Note.find({username: _username}, function(err, notes) {
@@ -85,7 +79,6 @@ router.get('/note', function (req, res, next) {
         else 
             return res.json(notes);
     })
-   // return res.sendStatus(200);
 })
 
 router.get('/deletenote', function(req, res, next) {
@@ -119,4 +112,4 @@ router.get('/deletenote', function(req, res, next) {
         return res.sendStatus(400);
 })
 
-module.exports = router
+module.exports = router;

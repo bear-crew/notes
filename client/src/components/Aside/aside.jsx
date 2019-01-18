@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-
 import './aside.css';
+import React, { Component } from 'react';
 import AsideBody from '../AsideBody/AsideBody';
 
 class Aside extends Component {
@@ -17,12 +16,12 @@ class Aside extends Component {
             }
         })
         .then(res => {
-            if(res.status != 500 && res.status != 401) {
+            if(res.status !== 500 && res.status !== 401) {
                 res.json().then(result => {
                     if(result) {
-                        let arr = []
-                        arr = result
-                        this.setState({noteList: arr})
+                        let arr = [];
+                        arr = result;
+                        this.setState({noteList: arr});
                     }
                 })
             }

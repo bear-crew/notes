@@ -9,8 +9,8 @@ class UserMenu extends Component {
     }
     
     logOut() {
-        localStorage.removeItem('token')
-        localStorage.removeItem('username')
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
         window.location.reload();
     }
 

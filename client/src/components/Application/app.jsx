@@ -7,38 +7,6 @@ class Application extends Component {
         loginState: false,
         username: ''
     }
-    
-    checkLogin = () => {
-        const token = localStorage.getItem('token');
-
-        if(token) {
-            fetch('http://localhost:3001/account', {
-                method: 'get',
-                headers: {
-                    'Content-Type':'application/json',
-                    'x-auth': token
-                }
-            })
-            .then(function(res) {
-                if(res.status != 500 && res.status != 401){
-                    //TODO: обновить токен
-                    res.json().then(result => {
-                        if(result) {
-                            this.setState({username: result.user});
-                        }
-                    });
-                    console.log('NEW TOKEN');
-                    return true
-                }
-                else 
-                    return false
-            });
-        }
-        else {
-            return false;
-        }
-            
-    }
 
     componentDidMount() {
         const token = localStorage.getItem('token');
@@ -55,6 +23,11 @@ class Application extends Component {
                 if(res.status != 500 && res.status != 401){
                     //TODO: обновить токен
                     this.setState({loginState: true})
+                    res.json().then(result => {
+                        if(result) {
+                            this.setState({username: result.username});
+                        }
+                    });
                 }
                 else 
                     this.setState({loginState: false})
@@ -72,7 +45,7 @@ class Application extends Component {
         if(this.state.loginState)
             return [
                 <Aside />,
-                <MainEditor loginState = {true}/>
+                <MainEditor loginState = {true} username = {this.state.username}/>
             ];
         else
             return (

@@ -20,8 +20,6 @@ class Aside extends Component {
             if(res.status != 500 && res.status != 401) {
                 res.json().then(result => {
                     if(result) {
-                        console.log(result)
-                        console.log(result[0].content)
                         let arr = []
                         arr = result
                         this.setState({noteList: arr})

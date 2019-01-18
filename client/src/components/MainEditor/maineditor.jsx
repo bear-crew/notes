@@ -23,7 +23,7 @@ class MainEditor extends Component {
     render() { 
         return ( 
             <main id="note-editor">
-                <TopNotch loginState = {this.props.loginState}/>
+                <TopNotch loginState = {this.props.loginState} username = {this.props.username}/>
                 <div id="editor">
                     <ReactEditor />
                 </div>

@@ -1,4 +1,4 @@
-import { ACTION_CHANGE_NOTE_ID, ACTION_CHANGE_IS_OPEN } from '../index';
+import { ACTION_CHANGE_NOTE_ID, ACTION_CHANGE_NOTES } from '../index';
 
 export const changeNoteId = (id) => {
     return {
@@ -7,9 +7,9 @@ export const changeNoteId = (id) => {
     };
 };
 
-export const changeIsOpen = (_isOpen) => {
+export const changeNotes = (_notes) => {
     return {
-        type: ACTION_CHANGE_IS_OPEN,
-        payload: _isOpen
+        type: ACTION_CHANGE_NOTES,
+        payload: _notes
     };
 };

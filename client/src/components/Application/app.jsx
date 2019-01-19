@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Aside from '../Aside/aside';
 import MainEditor from '../MainEditor/maineditor';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { changeNoteId, changeIsOpen } from '../../store/actions';
+import { putStateToProps, putActionsToProps } from '../../store/connectors';
 
 class Application extends Component {
     state = { 
@@ -40,10 +39,9 @@ class Application extends Component {
             this.setState({loginState: false})
     }
 
-    render() { 
-        const dispatch = this.props.dispatch;
-        const { noteId, isOpen, changeNoteId, changeIsOpen } = this.props;
-
+    render() {
+        // const dispatch = this.props.dispatch;
+        // const { noteId, isOpen, changeNoteId, changeIsOpen } = this.props;
         if(this.state.loginState)
             return [
                 <Aside />,
@@ -55,19 +53,5 @@ class Application extends Component {
             );
     }
 }
-
-const putStateToProps = (state) => {
-    return {
-        noteId: state.noteId,
-        isOpen: state.isOpen
-    };
-};
-
-const putActionsToProps = (dispatch) => {
-    return {
-        changeNoteId: bindActionCreators(changeNoteId, dispatch),
-        changeIsOpen: bindActionCreators(changeIsOpen, dispatch)
-    };
-};
 
 export default connect(putStateToProps, putActionsToProps)(Application);

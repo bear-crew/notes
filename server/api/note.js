@@ -87,7 +87,7 @@ router.get('/deletenote', function(req, res, next) {
 
     if (!token) 
         return res.sendStatus(401);
-
+    
     let _username;
     try {
         _username = jwt.verify(token, config.secretkey).data;
@@ -101,15 +101,15 @@ router.get('/deletenote', function(req, res, next) {
             if (err) 
                 return res.sendStatus(500);
             else
-                if (result.n) {
+                if (result.n) { //TODO: result.n is not the number of deleted notes
                     return res.sendStatus(200);
                 }
                 else
                     return res.sendStatus(401);
-        })
+        });
     }
     else
         return res.sendStatus(400);
-})
+});
 
 module.exports = router;

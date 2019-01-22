@@ -56,8 +56,8 @@ class SignIn extends Component {
         return[
             <div className="login-box">
                 <p>Save your notes in a cloud right now</p>
-                <input value = {this.state.username} type="text" placeholder="Username" className="login-input" onChange={(e) => {this.updateUsername(e); }}></input>
-                <input value = {this.state.password} type="password" placeholder="password" className="login-input" onChange={(e) => {this.updatePassword(e); }}></input>
+                <input value = {this.state.username} type="text" placeholder="Username" className="login-input" onChange={(e) => {this.updateUsername(e); }}/>
+                <input value = {this.state.password} type="password" placeholder="password" className="login-input" onChange={(e) => {this.updatePassword(e); }}/>
                 <button type="button" className="_login-button" onClick={this.logOn}>Login</button> 
             </div>
         ];

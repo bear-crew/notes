@@ -52,7 +52,7 @@ router.post('/note', function (req, res, next) {
                 if (err) 
                     return res.sendStatus(500);
                 else
-                    return res.sendStatus(200);
+                    return res.sendStatus(200); // TODO: return new note
             })
         }
         else 

@@ -12,18 +12,25 @@ router.post('/user', function (req, res, next) {
     user.username = req.body.username;
     const password = req.body.password;
 
-    bcrypt.hash(password, 10, function(err, hash){
-        if (err)
-            res.sendStatus(500);
-        else {
-            user.password = hash;
-            user.save(function (err) {
-                if (err) 
-                    res.sendStatus(500);
-                else 
-                    res.sendStatus(201);
-            });
-        }
+    User.findOne({username: user.username}, function(err, result) {
+        if (err) 
+            return res.sendStatus(500);
+        if (result) 
+            return res.send("Sorry, username is occupied");
+
+        bcrypt.hash(password, 10, function(err, hash) {
+            if (err)
+                res.sendStatus(500);
+            else {
+                user.password = hash;
+                user.save(function (err) {
+                    if (err) 
+                        res.sendStatus(500);
+                    else 
+                        res.sendStatus(201);
+                });
+            }
+        });
     });
 });
 

@@ -5,9 +5,7 @@ import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import { connect } from 'react-redux';
 
 class Aside extends Component {
-    state = {  
-        added: false //to fix
-    }
+    state = { }
 
     addNote = () => {
         fetch('http://localhost:3001/note', {

@@ -25,10 +25,10 @@ class Aside extends Component {
             if(res.status === 200) {
                 res.json().then(result => {
                     if(result) {
-                        let notes = this.props.notes;
-                        notes.push(result);
+                        let noteList = [...this.props.notes];
+                        noteList.push(result);
                         const { changeNotes } = this.props;
-                        changeNotes(notes);
+                        changeNotes(noteList);
                     }
                 });                
             }
@@ -36,7 +36,6 @@ class Aside extends Component {
     }
 
     componentDidMount() {
-        console.log("aside did mount")
         fetch('http://localhost:3001/note', {
             method: 'get',
             headers: {

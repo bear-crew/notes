@@ -11,16 +11,10 @@ class List extends Component {
         changeNoteId(e);
     }
 
-    componentDidUpdate() {
-        console.log("list updated");
-    }
-
     render() {
-        console.log(this.props)
         let list = this.props.notes.map(
             item => (<li key={item._id}  onClick = {() => {this.selectNote(item._id)}}><div className="out"><h2>{item.content.pole1}</h2></div><p>{item.content.pole2 ? item.content.pole2 : ""}</p></li>
         ))
-        console.log(list);
         return (
             <ul className="notes">
                 {list}

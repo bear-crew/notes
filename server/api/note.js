@@ -51,8 +51,8 @@ router.post('/note', function (req, res, next) {
             newNote.save(function(err) {
                 if (err) 
                     return res.sendStatus(500);
-                else
-                    return res.sendStatus(200); // TODO: return new note
+                else 
+                    return res.json(newNote);                 
             })
         }
         else 

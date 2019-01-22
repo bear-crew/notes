@@ -18,42 +18,23 @@ class Aside extends Component {
             },
             body: JSON.stringify({
                 note: {
-                    pole1: "NEW-NOTE",
-                    pole2: "new-note"
+                    pole1: "NEW-NOTE_1",
+                    pole2: "new-note_1"
                 }
             })
         })
         .then(res => {
             if(res.status === 200) {
-                console.log(this.state.added)
-                this.setState({added: !this.state.added})
-                console.log(this.state.added)
+                res.json().then(result => {
+                    if(result) {
+                        let notes = this.props.notes;
+                        notes.push(result);
+                        const { changeNotes } = this.props;
+                        changeNotes(notes);
+                    }
+                });                
             }
         });
-    }
-
-    componentDidUpdate() { //to fix
-        if(this.state.added) {
-            fetch('http://localhost:3001/note', {
-                method: 'get',
-                headers: {
-                    'Content-Type':'application/json',
-                    'x-auth': localStorage.getItem('token')
-                }
-            })
-            .then(res => {
-                if(res.status !== 500 && res.status !== 401) {
-                    res.json().then(result => {
-                        if(result) {
-                            const { changeNotes } = this.props;
-                            changeNotes(result);
-                            this.setState({added: !this.state.added})
-                        }
-                    });
-                }
-            });
-        }
-            
     }
 
     componentDidMount() {
@@ -78,7 +59,7 @@ class Aside extends Component {
     }
 
     render() { 
-        const bin = this.props.isOpen && <button type="button" className="delete-note"></button>
+        const bin = this.props.isOpen && <button type="button" className="delete-note"></button> //isOpen obsolete
         return (
             <aside id="menu">
                 <AsideBody/>

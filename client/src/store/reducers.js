@@ -1,7 +1,7 @@
 import { ACTION_CHANGE_CURRENT_NOTE, ACTION_CHANGE_NOTES, ACTION_UPDATE_NOTE } from '../index';
 
 const initialState = {
-    currentNote: { },
+    currentNote: null,
     notes: []
 };
 

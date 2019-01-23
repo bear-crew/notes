@@ -12,6 +12,10 @@
     padding-bottom: 13px;
 }
 
+.chosen {
+    background-color: aquamarine;
+}
+
 .notes > li:after {
     content: "";
     position: absolute;

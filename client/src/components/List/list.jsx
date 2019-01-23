@@ -4,17 +4,33 @@ import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import './list.css';  
 
 class List extends Component {
-    state = {  }
+    state = { 
+        chosen: false
+    }
 
     selectNote = (e) => {
         const {changeCurrentNote} = this.props;
+        this.setState( { chosen: true } );
         changeCurrentNote(e);
     }
 
     render() {
         let list = this.props.notes.map(
-            item => (<li key={item._id}  onClick = {() => {this.selectNote(item)}}><div className="out"><h2>{"NEW NOTE"}</h2></div><p>{"new note"}</p></li>
-        ))
+            item => (
+            <li 
+            key={item._id} 
+            className={this.state.chosen && this.props.currentNote._id === item._id? "chosen" : ""} 
+            onClick = {() => {this.selectNote(item)}}>
+                <div className="out">
+                    <h2>
+                        { item.content && item.content.blocks[0].text !== "" ? item.content.blocks[0].text : "New note" }
+                    </h2>
+                </div>
+                <p>
+                    { item.content && item.content.blocks[1] ? item.content.blocks[1].text : "" }
+                </p>
+            </li>
+        ));
         return (
             <ul className="notes">
                 {list}

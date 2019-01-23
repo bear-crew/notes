@@ -5,14 +5,14 @@ import './topnotch.css';
 
 class TopNotch extends Component {
     state = {
-        menuIsHidden: 1
+        menuIsHidden: true
     }
 
     showMenu = () => {
         if (this.state.menuIsHidden)
-            this.setState({menuIsHidden: 0});
+            this.setState({menuIsHidden: false});
         else
-            this.setState({menuIsHidden: 1});
+            this.setState({menuIsHidden: true});
     }
 
     render() {

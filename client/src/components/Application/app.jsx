@@ -45,9 +45,8 @@ class Application extends Component {
                 if(res.status !== 500 && res.status !== 401) {
                     res.json().then(result => {
                         if(result) {
-                            const { changeNotes, changeCurrentNote } = this.props;
+                            const { changeNotes } = this.props;
                             changeNotes(result);
-                            changeCurrentNote(result[0]);
                         }
                     });
                 }
@@ -59,8 +58,6 @@ class Application extends Component {
     }
 
     render() {
-        // const dispatch = this.props.dispatch;
-        // const { noteId, isOpen, changeNoteId, changeIsOpen } = this.props;
         if(this.state.loginState)
             return [
                 <Aside />,

@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import './usermenu.css';
 
 class UserMenu extends Component {
-    constructor (props) {
-        super(props);
-        this.state = {};
-        this.logOut = this.logOut.bind(this);
-    }
+    state = { };
     
-    logOut() {
+    logOut = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
         window.location.reload();

@@ -12,7 +12,7 @@ class Aside extends Component {
     }
 
     addNote = () => {
-        console.log("this2", this.state.editorState)
+        console.log("this2", this.state.editorState.getCurrentContent())
         fetch('http://localhost:3001/note', {
             method: 'post',
             headers: {

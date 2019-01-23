@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import AsideBody from '../AsideBody/AsideBody';
+import { EditorState } from 'draft-js';
+import { convertToRaw } from "draft-js";
 import './aside.css';
 import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import { connect } from 'react-redux';
 
 class Aside extends Component {
-    state = { }
+    state = { 
+        editorState: EditorState.createEmpty()
+    }
 
     addNote = () => {
+        console.log("this2", this.state.editorState)
         fetch('http://localhost:3001/note', {
             method: 'post',
             headers: {
@@ -15,10 +20,7 @@ class Aside extends Component {
                 'x-auth': localStorage.getItem('token')
             },
             body: JSON.stringify({
-                note: {
-                    pole1: "NEW-NOTE_1",
-                    pole2: "new-note_1"
-                }
+                note: convertToRaw(this.state.editorState.getCurrentContent())
             })
         })
         .then(res => {
@@ -27,33 +29,18 @@ class Aside extends Component {
                     if(result) {
                         let noteList = [...this.props.notes];
                         noteList.push(result);
-                        const { changeNotes } = this.props;
+                        const { changeNotes, changeCurrentNote } = this.props;
                         changeNotes(noteList);
+                        changeCurrentNote(result);
                     }
                 });                
             }
         });
     }
 
-    componentDidMount() {
-        fetch('http://localhost:3001/note', {
-            method: 'get',
-            headers: {
-                'Content-Type':'application/json',
-                'x-auth': localStorage.getItem('token')
-            }
-        })
-        .then(res => {
-            if(res.status !== 500 && res.status !== 401) {
-                res.json().then(result => {
-                    if(result) {
-                        const { changeNotes } = this.props;
-                        changeNotes(result);
-                    }
-                });
-            }
-        });
-    }
+    // componentDidMount() {
+
+    // }
 
     render() { 
         const bin = this.props.isOpen && <button type="button" className="delete-note"></button> //isOpen obsolete

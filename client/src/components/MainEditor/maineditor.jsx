@@ -34,12 +34,12 @@ class MainEditor extends Component {
     //     });
     // }
 
-    render() { 
+    render() {
         return ( 
             <main id="note-editor">
                 <TopNotch loginState = {this.props.loginState} username = {this.props.username}/>
                 <div id="editor">
-                    <ReactEditor />
+                    <ReactEditor/>
                 </div>
                 <div className="edit">
                     <button className="button-edit" type="button" onClick={this.showHideEdit}>

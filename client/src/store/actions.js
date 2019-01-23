@@ -1,9 +1,9 @@
-import { ACTION_CHANGE_NOTE_ID, ACTION_CHANGE_NOTES } from '../index';
+import { ACTION_CHANGE_CURRENT_NOTE, ACTION_CHANGE_NOTES } from '../index';
 
-export const changeNoteId = (id) => {
+export const changeCurrentNote = (note) => {
     return {
-        type: ACTION_CHANGE_NOTE_ID,
-        payload: id
+        type: ACTION_CHANGE_CURRENT_NOTE,
+        payload: note
     };
 };
 

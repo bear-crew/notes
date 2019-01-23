@@ -9,7 +9,7 @@ import { rootReducer } from './store/reducers';
 import { BrowserRouter, Route} from 'react-router-dom';
 import Application from './components/Application/app';
 
-export const ACTION_CHANGE_NOTE_ID = 'ACTION_CHANGE_NOTE_ID';
+export const ACTION_CHANGE_CURRENT_NOTE = 'ACTION_CHANGE_CURRENT_NOTE';
 export const ACTION_CHANGE_NOTES = 'ACTION_CHANGE_NOTES';
 
 const store = createStore(rootReducer);

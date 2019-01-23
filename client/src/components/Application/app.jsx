@@ -12,7 +12,6 @@ class Application extends Component {
 
     componentDidMount() {
         const token = localStorage.getItem('token');
-
         if(token) {
             fetch('http://localhost:3001/account', {
                 method: 'get',
@@ -22,7 +21,7 @@ class Application extends Component {
                 }
             })
             .then(res => {
-                if(res.status != 500 && res.status != 401){
+                if(res.status !== 500 && res.status !== 401){
                     //TODO: обновить токен
                     this.setState({loginState: true})
                     res.json().then(result => {
@@ -34,6 +33,26 @@ class Application extends Component {
                 else 
                     this.setState({loginState: false})
             });
+
+            fetch('http://localhost:3001/note', {
+                method: 'get',
+                headers: {
+                    'Content-Type':'application/json',
+                    'x-auth': token
+                }
+            })
+            .then(res => {
+                if(res.status !== 500 && res.status !== 401) {
+                    res.json().then(result => {
+                        if(result) {
+                            const { changeNotes, changeCurrentNote } = this.props;
+                            changeNotes(result);
+                            changeCurrentNote(result[0]);
+                        }
+                    });
+                }
+            });
+            
         }
         else
             this.setState({loginState: false})

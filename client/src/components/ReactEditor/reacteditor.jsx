@@ -3,12 +3,26 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState } from 'draft-js';
 import { convertToRaw, convertFromRaw } from "draft-js";
+import { putStateToProps, putActionsToProps } from '../../store/connectors';
+import { connect } from 'react-redux';
 import './reacteditor.css';
 
 class ReactEditor extends React.Component {
 	state = {
 		editorState: EditorState.createEmpty()
 	};
+
+	componentDidUpdate(prevProps, prevState) {
+		// console.log("prev props = ",prevProps);
+		// console.log("new props = ", this.props);
+		if(prevProps.currentNote !== this.props.currentNote && this.props.currentNote) { //TO FIX additional condition
+			console.log("didUpdate", this.props.currentNote.content);
+			console.log("currentContent", convertToRaw(this.state.editorState.getCurrentContent()));
+			console.log("this1", this.state.editorState.getCurrentContent()); //TODO check if content in database is empty and create empty note manually
+			// this.state.editorState.push(this.state.editorState, convertFromRaw(this.props.currentNote.content));
+		}
+
+	}
 
 	onEditorStateChange = (editorState) => {
 		this.setState({
@@ -18,7 +32,7 @@ class ReactEditor extends React.Component {
 		let request = {
 			content: convertToRaw(contentState)
 		}
-		request = JSON.stringify(request)
+		console.log("onEditorStateChange", request.content)
 		// fetch('http://localhost:3001/note', {
 		//   method: 'post',
 		//   headers: {'Content-Type':'application/json'},
@@ -32,6 +46,11 @@ class ReactEditor extends React.Component {
 	// console.log(convertToRaw(contentState));
 
 	render() {
+		if(this.props.noteId === "") {
+			console.log("no note");
+			return null;
+		}
+		console.log("sdasd");
 		return (
 			<Editor
 				editorState={this.state.editorState}
@@ -57,5 +76,4 @@ class ReactEditor extends React.Component {
 	}
 }
 
-export default ReactEditor;
-
+export default connect(putStateToProps, putActionsToProps)(ReactEditor);

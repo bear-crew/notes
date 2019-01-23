@@ -6,7 +6,7 @@ const config = require('../config');
 
 router.post('/note', function (req, res, next) { 
     const token = req.headers['x-auth'];
-    const noteId = req.body.noteId;
+    const noteId = req.body.id;
     const userNote = req.body.note;
 
     if (!token) 
@@ -31,7 +31,7 @@ router.post('/note', function (req, res, next) {
                         if (err) 
                             return res.sendStatus(500);
                         else
-                            return res.sendStatus(200); // updated successfully
+                            return res.json(note); // updated successfully
                     })
                 }
                 else {

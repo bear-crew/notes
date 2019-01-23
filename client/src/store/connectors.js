@@ -1,4 +1,4 @@
-import { changeCurrentNote, changeNotes } from './actions';
+import { changeCurrentNote, changeNotes, updateNote } from './actions';
 import { bindActionCreators } from 'redux';
 
 export const putStateToProps = (state) => {
@@ -11,6 +11,7 @@ export const putStateToProps = (state) => {
 export const putActionsToProps = (dispatch) => {
     return {
         changeCurrentNote: bindActionCreators(changeCurrentNote, dispatch),
-        changeNotes: bindActionCreators(changeNotes, dispatch)
+        changeNotes: bindActionCreators(changeNotes, dispatch),
+        updateNote: bindActionCreators(updateNote, dispatch)
     };
 };

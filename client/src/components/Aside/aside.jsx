@@ -12,7 +12,6 @@ class Aside extends Component {
     }
 
     addNote = () => {
-        console.log("this2", this.state.editorState.getCurrentContent())
         fetch('http://localhost:3001/note', {
             method: 'post',
             headers: {
@@ -20,7 +19,7 @@ class Aside extends Component {
                 'x-auth': localStorage.getItem('token')
             },
             body: JSON.stringify({
-                note: convertToRaw(this.state.editorState.getCurrentContent())
+                note: {}
             })
         })
         .then(res => {
@@ -38,12 +37,8 @@ class Aside extends Component {
         });
     }
 
-    // componentDidMount() {
-
-    // }
-
     render() { 
-        const bin = this.props.isOpen && <button type="button" className="delete-note"></button> //isOpen obsolete
+        const bin = this.props.isOpen && <button type="button" className="delete-note"></button> //TODO: isOpen obsolete
         return (
             <aside id="menu">
                 <AsideBody/>

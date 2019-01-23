@@ -11,6 +11,7 @@ import Application from './components/Application/app';
 
 export const ACTION_CHANGE_CURRENT_NOTE = 'ACTION_CHANGE_CURRENT_NOTE';
 export const ACTION_CHANGE_NOTES = 'ACTION_CHANGE_NOTES';
+export const ACTION_UPDATE_NOTE = 'ACTION_UPDATE_NOTE';
 
 const store = createStore(rootReducer);
 

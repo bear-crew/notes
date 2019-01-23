@@ -5,6 +5,7 @@ import { EditorState } from 'draft-js';
 import { convertToRaw, convertFromRaw } from "draft-js";
 import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import { connect } from 'react-redux';
+import debounce from 'lodash/debounce';
 import './reacteditor.css';
 
 class ReactEditor extends React.Component {
@@ -12,6 +13,7 @@ class ReactEditor extends React.Component {
 		
 	};
 
+	//TODO решить проблему с обновление контента текущей заметки
 	componentDidUpdate(prevProps) {
 		if ( (this.props.currentNote && !prevProps.currentNote) || (this.props.currentNote && prevProps.currentNote && this.props.currentNote._id !== prevProps.currentNote._id) ) {
 			if (this.props.currentNote.content) {
@@ -26,16 +28,7 @@ class ReactEditor extends React.Component {
 		}
 	}
 
-	onEditorStateChange = (editorState) => {
-		this.setState({
-			editorState
-		});
-
-		let request = {
-			id: this.props.currentNote._id,
-			note: convertToRaw(editorState.getCurrentContent())
-		}
-
+	saveContent = debounce((request) => {
 		fetch('http://localhost:3001/note', {
 			method: 'post',
 			headers: {
@@ -56,6 +49,19 @@ class ReactEditor extends React.Component {
 				});
 			}
 		});
+	}, 1000)
+
+	onEditorStateChange = (editorState) => {
+		this.setState({
+			editorState
+		});
+
+		let request = {
+			id: this.props.currentNote._id,
+			note: convertToRaw(editorState.getCurrentContent())
+		}
+		
+		this.saveContent(request);
 	}
 
 	render() {

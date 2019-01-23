@@ -31,7 +31,6 @@ router.post('/note', function (req, res, next) {
                         if (err) 
                             return res.sendStatus(500);
                         else {
-                            console.log("note", note);
                             return res.send(note); // updated successfully
                         }
                     })

@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "draft-js": "^0.10.5",
     "immutable": "^4.0.0-rc.12",
+    "lodash": "^4.17.11",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-draft-wysiwyg": "^1.12.19",

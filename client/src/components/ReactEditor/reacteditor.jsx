@@ -6,7 +6,6 @@ import { convertToRaw, convertFromRaw } from "draft-js";
 import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import { connect } from 'react-redux';
 import './reacteditor.css';
-import { updateNote } from '../../store/actions';
 
 class ReactEditor extends React.Component {
 	state = {
@@ -16,9 +15,7 @@ class ReactEditor extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (prevProps.currentNote && this.props.currentNote && prevProps.currentNote._id !== this.props.currentNote._id) {
 			if (this.props.currentNote.content) {
-				console.log("govno", this.props.currentNote.content);
-				//this.setState( { editorState: EditorState.createWithContent(convertFromRaw(this.props.currentNote.content)) } );
-				this.setState( { editorState: EditorState.createWithContent(ContentState.createFromBlockArray(this.props.currentNote.content)) } );
+				this.setState( { editorState: EditorState.createWithContent(convertFromRaw(this.props.currentNote.content)) } );
 			}
 			else {
 				this.setState( { editorState: EditorState.createEmpty() } );
@@ -32,8 +29,8 @@ class ReactEditor extends React.Component {
 			editorState,
 		});
 
-		console.log("pizda", convertToRaw(editorState.getCurrentContent()));
-
+		//console.log("pizda", JSON.parse(JSON.stringify(convertToRaw(editorState.getCurrentContent()))));
+		//console.log("2222", JSON.parse(JSON.stringify( { id: this.props.currentNote._id, note: convertToRaw(editorState.getCurrentContent()) } )));
 		fetch('http://localhost:3001/note', {
 			method: 'post',
 			headers: {
@@ -42,17 +39,18 @@ class ReactEditor extends React.Component {
 			},
 			body: JSON.stringify( {
 				id: this.props.currentNote._id,
-				//note: convertToRaw(editorState.getCurrentContent())
-				note: editorState.getCurrentContent()
+				note: convertToRaw(editorState.getCurrentContent())
 			} )
 		})
 		.then(res => {
 			if (res.status === 200) {
 				const { updateNote, changeCurrentNote } = this.props;
-				res.json().then(result => {
+				res.text().then(result => {
+					const res = JSON.parse(result);
 					if (result) {
-						updateNote(result);
-						changeCurrentNote(result);
+						updateNote(res);
+						changeCurrentNote(res);
+						console.log("dfyuio", res);
 					}
 				});
 			}

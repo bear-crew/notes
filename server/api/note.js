@@ -30,8 +30,10 @@ router.post('/note', function (req, res, next) {
                     note.save(function(err) {
                         if (err) 
                             return res.sendStatus(500);
-                        else
-                            return res.json(note); // updated successfully
+                        else {
+                            console.log("note", note);
+                            return res.send(note); // updated successfully
+                        }
                     })
                 }
                 else {

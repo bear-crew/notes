@@ -15,12 +15,17 @@ class List extends Component {
         if(this.props.search === "") 
             return true;
 
-        const str = "New note";
-        if( (item.content === undefined || item.content.blocks[0].text === "") && str.indexOf(this.props.search) !== -1)
-                return true;
+        let str = "new note";
+       
+        if( item.content === undefined || item.content.blocks[0].text === "" ) {
+            return str.indexOf(this.props.search.toLowerCase()) !== -1;
+        }
 
-        if( item.content && item.content.blocks[0].text.indexOf(this.props.search) !== -1)
-                return true;
+        if( item.content ) {
+            str = item.content.blocks[0].text.toLowerCase();
+            return str.indexOf(this.props.search.toLowerCase()) !== -1;
+        }
+            
 
         return false;
     }

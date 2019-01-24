@@ -1,8 +1,9 @@
-import { ACTION_CHANGE_CURRENT_NOTE, ACTION_CHANGE_NOTES, ACTION_UPDATE_NOTE, ACTION_DELETE_NOTE } from '../index';
+import { ACTION_CHANGE_CURRENT_NOTE, ACTION_CHANGE_NOTES, ACTION_UPDATE_NOTE, ACTION_DELETE_NOTE, ACTION_CHANGE_SEARCH } from '../index';
 
 const initialState = {
     currentNote: null,
-    notes: []
+    notes: [],
+    search: ""
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -18,6 +19,9 @@ export const rootReducer = (state = initialState, action) => {
 
         case ACTION_DELETE_NOTE: 
             return { ...state, notes: state.notes.filter(note => { return note._id !== action.payload } ) };
+        
+        case ACTION_CHANGE_SEARCH:
+            return { ...state, search: action.payload };   
     };
 
     return state;

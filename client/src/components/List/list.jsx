@@ -11,9 +11,23 @@ class List extends Component {
         changeCurrentNote(e);
     }
 
+    checkSearch = (item) => {
+        if(this.props.search === "") 
+            return true;
+
+        const str = "New note";
+        if( (item.content === undefined || item.content.blocks[0].text === "") && str.indexOf(this.props.search) !== -1)
+                return true;
+
+        if( item.content && item.content.blocks[0].text.indexOf(this.props.search) !== -1)
+                return true;
+
+        return false;
+    }
+
     render() {
         let list = this.props.notes.map(
-            item => (
+            item => ( this.checkSearch(item) &&
             <li 
             key={item._id} 
             className={ this.props.currentNote && this.props.currentNote._id === item._id ? "chosen" : "" } 

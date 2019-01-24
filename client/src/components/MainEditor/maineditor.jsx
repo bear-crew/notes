@@ -6,10 +6,6 @@ import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import { connect } from 'react-redux';
 
 class MainEditor extends Component {
-    // state = {
-    //     content
-    // }
-
     showHideEdit = () => {
         const edit = document.getElementsByClassName('block-edit')[0];
         const button = document.getElementsByClassName('button-edit')[0];
@@ -25,14 +21,6 @@ class MainEditor extends Component {
             button.innerHTML = '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M1.238 13.312a.478.478 0 0 0-.137.27L.384 18.59a.461.461 0 0 0 .526.526l5.008-.717a.478.478 0 0 0 .27-.137l9.194-9.194a.469.469 0 0 0 .006-.666.469.469 0 0 0-.666.006L5.64 17.491l-4.237.606.606-4.237 9.066-9.065a.469.469 0 0 0 .006-.666.469.469 0 0 0-.666.006l-9.177 9.177z" fill="#2C2F33"/><path d="M12.55 6.242l-8.515 8.516a.488.488 0 0 0 .015.692.488.488 0 0 0 .692.015l8.516-8.516a.488.488 0 0 0-.015-.692.488.488 0 0 0-.692-.015z" fill="#2C2F33"/><path d="M13.533 1.017L11.851 2.7c-.209.21-.23.523-.046.706l4.29 4.29c.183.183.497.163.706-.046l1.682-1.682c.813-.813.897-2.057.18-2.774L16.308.836c-.713-.713-1.957-.635-2.774.181zm4.293 4.293L16.52 6.617l-3.633-3.634 1.306-1.306c.399-.399 1.012-.439 1.362-.089l2.357 2.357c.353.353.317.963-.086 1.365z" fill="#3C92CA" fill-rule="nonzero"/></g></svg>';
         }
     }
-
-    // componentDidMount() {
-    //     this.props.notes.forEach(element => {
-    //         if(element._id === this.props.noteId) {
-
-    //         }
-    //     });
-    // }
 
     render() {
         return ( 

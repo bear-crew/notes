@@ -82,7 +82,7 @@ router.get('/note', function (req, res, next) {
     })
 })
 
-router.get('/deletenote', function(req, res, next) {
+router.delete('/note', function(req, res, next) {
     const token = req.headers['x-auth'];
     const noteId = req.body.noteId;
 

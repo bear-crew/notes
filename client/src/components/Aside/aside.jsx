@@ -37,8 +37,26 @@ class Aside extends Component {
         });
     }
 
+    deleteNote = () => {
+        const { deleteNote, changeCurrentNote } = this.props;
+        const id = this.props.currentNote._id;
+        deleteNote(id);
+        changeCurrentNote(null);
+    
+        fetch('http://localhost:3001/note', { // delete note on server
+            method: 'delete',
+            headers: {
+                'Content-Type':'application/json',
+                'x-auth': localStorage.getItem('token')
+            },
+            body: JSON.stringify( {
+                noteId: id
+            } )
+        });
+    }
+
     render() { 
-        const bin = this.props.isOpen && <button type="button" className="delete-note"></button> //TODO: isOpen obsolete
+        const bin = this.props.currentNote && <button type="button" className="delete-note" onClick={this.deleteNote}></button> //TODO: isOpen obsolete
         return (
             <aside id="menu">
                 <AsideBody/>

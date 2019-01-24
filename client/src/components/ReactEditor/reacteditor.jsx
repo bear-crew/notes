@@ -9,11 +9,8 @@ import debounce from 'lodash/debounce';
 import './reacteditor.css';
 
 class ReactEditor extends React.Component {
-	state = {
-		
-	};
+	state = { };
 
-	//TODO решить проблему с обновлением контента текущей заметки
 	componentDidUpdate(prevProps) {
 		if ( (this.props.currentNote && !prevProps.currentNote) || (this.props.currentNote && prevProps.currentNote && this.props.currentNote._id !== prevProps.currentNote._id) ) {
 			if (this.props.currentNote.content) {
@@ -26,6 +23,9 @@ class ReactEditor extends React.Component {
 				this.setState( { editorState: EditorState.createEmpty() } );
 			}
 		}
+
+		if (!this.props.currentNote && prevProps.currentNote)
+			this.setState( {editorState: null} );
 	}
 
 	saveContent = debounce((request) => {
@@ -60,7 +60,7 @@ class ReactEditor extends React.Component {
 		if(!this.state.editorState) {
 			return (
 				<h3>Loading...</h3>
-			  );
+			);
 		}
 
 		return (

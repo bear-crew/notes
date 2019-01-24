@@ -1,4 +1,4 @@
-import { ACTION_CHANGE_CURRENT_NOTE, ACTION_CHANGE_NOTES, ACTION_UPDATE_NOTE } from '../index';
+import { ACTION_CHANGE_CURRENT_NOTE, ACTION_CHANGE_NOTES, ACTION_UPDATE_NOTE, ACTION_DELETE_NOTE } from '../index';
 
 const initialState = {
     currentNote: null,
@@ -14,7 +14,10 @@ export const rootReducer = (state = initialState, action) => {
             return { ...state, notes: action.payload };
 
         case ACTION_UPDATE_NOTE:
-            return { ...state, notes: state.notes.map( note => note._id === action.payload._id? action.payload: note) }
+            return { ...state, notes: state.notes.map(note => note._id === action.payload._id ? action.payload : note) };
+
+        case ACTION_DELETE_NOTE: 
+            return { ...state, notes: state.notes.filter(note => { return note._id !== action.payload } ) };
     };
 
     return state;

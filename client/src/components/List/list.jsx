@@ -4,13 +4,10 @@ import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import './list.css';  
 
 class List extends Component {
-    state = { 
-        chosen: false
-    }
+    state = { }
 
     selectNote = (e) => {
         const {changeCurrentNote} = this.props;
-        this.setState( { chosen: true } );
         changeCurrentNote(e);
     }
 
@@ -19,7 +16,7 @@ class List extends Component {
             item => (
             <li 
             key={item._id} 
-            className={this.state.chosen && this.props.currentNote._id === item._id? "chosen" : ""} 
+            className={ this.props.currentNote && this.props.currentNote._id === item._id ? "chosen" : "" } 
             onClick = {() => {this.selectNote(item)}}>
                 <div className="out">
                     <h2>

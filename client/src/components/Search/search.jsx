@@ -6,16 +6,16 @@ import './search.css';
 class Search extends Component {
     state = {  }
 
-    search = (e) => {
-        const {changeSearch} = this.props;
-        changeSearch(e.target.value);
+    search = (value) => {
+        const { changeSearch } = this.props;
+        changeSearch(value.target.value);
     }
 
     render() { 
         return (
-                <div className="top-notch">
-                    <input className="search-field" placeholder="Search" onInput = {(e) => {this.search(e);}}/>
-                </div>
+            <div className="top-notch">
+                <input className="search-field" placeholder="Search" onInput = { value => this.search(value) }/>
+            </div>
         );
     }
 }

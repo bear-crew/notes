@@ -12,20 +12,20 @@ class List extends Component {
     }
 
     checkSearch = (item) => {
-        if(this.props.search === "") 
+        if (this.props.search === "") 
             return true;
 
         let str = "new note";
        
-        if( item.content === undefined || item.content.blocks[0].text === "" ) {
+        if (!item.content || item.content.blocks[0].text === "")
             return str.indexOf(this.props.search.toLowerCase()) !== -1;
-        }
 
-        if( item.content ) {
-            str = item.content.blocks[0].text.toLowerCase();
-            return str.indexOf(this.props.search.toLowerCase()) !== -1;
+        if (item.content) {
+            const searchField = this.props.search.toLowerCase();
+            for (let i in item.content.blocks) 
+                if (item.content.blocks[i].text.toLowerCase().indexOf(searchField) !== -1)
+                    return true;
         }
-            
 
         return false;
     }
@@ -35,7 +35,7 @@ class List extends Component {
             item => ( this.checkSearch(item) &&
             <li 
             key={item._id} 
-            className={ this.props.currentNote && this.props.currentNote._id === item._id ? "chosen" : "" } 
+            className={ this.props.currentNote && this.props.currentNote._id === item._id ? "item chosen" : "item" } 
             onClick = {() => {this.selectNote(item)}}>
                 <div className="out">
                     <h2>

@@ -13,7 +13,7 @@ class ReactEditor extends React.Component {
 		
 	};
 
-	//TODO решить проблему с обновление контента текущей заметки
+	//TODO решить проблему с обновлением контента текущей заметки
 	componentDidUpdate(prevProps) {
 		if ( (this.props.currentNote && !prevProps.currentNote) || (this.props.currentNote && prevProps.currentNote && this.props.currentNote._id !== prevProps.currentNote._id) ) {
 			if (this.props.currentNote.content) {
@@ -37,21 +37,10 @@ class ReactEditor extends React.Component {
 			},
 			body: JSON.stringify(request)
 		})
-		.then(res => {
-			if (res.status === 200) {
-				const { updateNote, changeCurrentNote } = this.props;
-				res.text().then(result => {
-					let res = JSON.parse(result);
-					if (res) {
-						updateNote(res);
-						changeCurrentNote(res);
-					}
-				});
-			}
-		});
-	}, 1000)
+	}, 500)
 
 	onEditorStateChange = (editorState) => {
+		console.log("editor-state-change");
 		this.setState({
 			editorState
 		});
@@ -60,7 +49,10 @@ class ReactEditor extends React.Component {
 			id: this.props.currentNote._id,
 			note: convertToRaw(editorState.getCurrentContent())
 		}
-		
+		const { updateNote, changeCurrentNote } = this.props;
+		this.props.currentNote.content = request.note;
+		changeCurrentNote(this.props.currentNote);
+		updateNote(this.props.currentNote);
 		this.saveContent(request);
 	}
 

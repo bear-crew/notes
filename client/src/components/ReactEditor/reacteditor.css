@@ -155,22 +155,6 @@
     display: none;
 }
 
-/* .rdw-link-modal {
-    position: absolute;
-    flex-direction: column;
-    width: 235px;
-    border: 1px solid #F1F1F1;
-    padding: 15px;
-    border-radius: 6px;
-    z-index: 100;
-    background: white;
-    box-shadow: 3px 3px 5px #BFBDBD;
-    height: auto;
-    top: auto;
-    bottom: 45px;
-    left: -110px;
-} */
-
 .rdw-link-modal-target-option {
     display: none;
 }

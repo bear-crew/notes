@@ -57,4 +57,16 @@ router.get('/user', function (req, res, next) {
     });
 });
 
+router.get('/checkuser', function (req, res, next) {
+    User.findOne({username: req.body.username}, function(err, user) {
+        if (err) 
+            return res.sendStatus(500);
+        else 
+            if (user)
+                res.send(true);
+            else
+                res.send(false);
+    });
+});
+
 module.exports = router;

@@ -1,0 +1,98 @@
+.registration-box {
+    display: block;
+    width: 430px;
+    height: 510px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+.registration-box p {
+    width: 270px;
+    height: 76px;
+    margin-left: 65px;
+    margin-top: 73px;
+    margin-bottom: 31px; 
+    opacity: 0.72;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -1.5px;
+    color: #000000;
+}
+
+.registration-input {
+    width: 280px;
+    height: 51px;
+    padding-left: 17px;
+    padding-right: 17px;
+    margin-left: 65px;
+    margin-bottom: 23px;
+    border-radius: 9px;
+    background-color: #eef0f2;
+    color: #868686;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    letter-spacing: 0.2px;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    color: #868686;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #868686;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #868686;
+    opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+    color: #868686;
+    opacity: 1;
+}
+
+.registration-input:focus {
+    outline: none;   
+    -webkit-box-shadow:inset 0px 0px 0px 1px #e0e0e0;
+    -moz-box-shadow:inset 0px 0px 0px 1px #e0e0e0;
+    box-shadow:inset 0px 0px 0px 1px #e0e0e0;
+    background-color: white;
+}
+
+._registration-button {
+    width: 72px;
+    height: 36px;
+    margin-left: 179px;
+    margin-top: 9px;
+    opacity: 0.72;
+    border-radius: 9px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+._registration-button:hover {
+    cursor: pointer;
+}
+
+._registration-button:focus{
+    outline: none;
+}
+
+.registration-input.green:focus {
+    outline: none;   
+    -webkit-box-shadow:inset 0px 0px 0px 1px #5ebe37;
+    -moz-box-shadow:inset 0px 0px 0px 1px #5ebe37;
+    box-shadow:inset 0px 0px 0px 1px #5ebe37;
+    background-color: white;
+}
+
+.registration-input.red:focus {
+    outline: none;   
+    -webkit-box-shadow:inset 0px 0px 0px 1px #a83636;
+    -moz-box-shadow:inset 0px 0px 0px 1px #a83636;
+    box-shadow:inset 0px 0px 0px 1px #a83636;
+    background-color: white;
+}

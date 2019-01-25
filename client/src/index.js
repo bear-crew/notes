@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import SignIn from './components/SignIn/signIn';
+import Registration from './components/Registration/registration';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { rootReducer } from './store/reducers';
@@ -23,6 +24,7 @@ ReactDOM.render((
             <div id="app">
                 <Route path="/" component={Application} exact/>
                 <Route path="/signin" component={SignIn}/>
+                <Route path="/signup" component={Registration}/>
             </div>
         </BrowserRouter>
     </Provider>

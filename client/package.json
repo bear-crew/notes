@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "Dante2": "^0.5.0-rc4",
     "draft-js": "^0.10.5",
-    "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.11",
+    "megadraft": "^0.6.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-draft-wysiwyg": "^1.12.19",
@@ -15,9 +15,7 @@
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
     "react-scripts": "2.1.1",
-    "redux": "^4.0.1",
-    "slate": "^0.44.9",
-    "slate-react": "^0.21.15"
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

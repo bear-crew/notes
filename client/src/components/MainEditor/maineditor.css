@@ -2,6 +2,7 @@
     position: relative;
     display: inline-flex;
     flex-direction: column;
+    min-height: 400px;
     height: 92vh;
     border: 1px solid #E0E0E0;
     box-shadow: rgba(0, 0, 0, 0.10) 0 0 4px 0;
@@ -12,16 +13,15 @@
     max-width: 716px;
     width: 716px;
     min-width: 500px;
-    min-height: 400px;
     margin-right: 20px;
     border-radius: 6px;
 }
 
 #editor {
-    height: 100%;
+    height: calc(100% - 80px);
     display: inline-flex;
     width: 100%;
-  }
+}
 
 .top-notch {
     background-color: white;

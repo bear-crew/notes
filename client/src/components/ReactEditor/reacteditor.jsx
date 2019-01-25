@@ -1,6 +1,8 @@
 import React from 'react';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+//import { Editor } from 'react-draft-wysiwyg';
+//import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { MegadraftEditor, editorStateFromRaw } from "megadraft";
+import 'megadraft/dist/css/megadraft.css';
 import { EditorState } from 'draft-js';
 import { convertToRaw, convertFromRaw } from "draft-js";
 import { putStateToProps, putActionsToProps } from '../../store/connectors';
@@ -64,25 +66,9 @@ class ReactEditor extends React.Component {
 		}
 
 		return (
-			<Editor
+			<MegadraftEditor
 				editorState={this.state.editorState}
-				onEditorStateChange={this.onEditorStateChange}
-				toolbarClassName="block-edit"
-				toolbar={{
-					options: ['inline', 'image', 'list', 'blockType', 'link'],
-					inline: {
-						inDropdown: false,
-						options: ['bold', 'italic']
-					},
-					blockType: {
-						inDropdown: false,
-						options: ['H1', 'H2', 'H3']
-					},
-					list: {
-						inDropdown: false,
-						options: ['unordered', 'ordered']
-					},
-				}}
+				onChange={this.onEditorStateChange}
 			/>
 		)
 	}

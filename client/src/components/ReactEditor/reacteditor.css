@@ -15,3 +15,15 @@
 .block__controls, .block__data {
     display: none;
 }
+
+.toolbar__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: auto;
+    width: 80px;
+}
+
+.toolbar__item--separator {
+    display: none;
+}

@@ -22,7 +22,7 @@ class ReactEditor extends React.Component {
 				this.setState( { editorState: EditorState.createWithContent(convertFromRaw(note)) } );
 			}
 			else {
-				this.setState( { editorState: EditorState.createEmpty() } );
+				this.setState( { editorState: editorStateFromRaw(null) } );
 			}
 		}
 

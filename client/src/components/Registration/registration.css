@@ -1,18 +1,32 @@
 .registration-box {
-    display: block;
+    display: flex;
+    padding: 40px 0;
+    flex-direction: column;
+    align-items: center;
     width: 430px;
-    height: 510px;
+    height: 410px;
     border-radius: 6px;
     border: 1px solid #e0e0e0;
     background-color: #ffffff;
+    position: relative;
 }
 
-.registration-box p {
-    width: 270px;
+.back {
+    opacity: 0.72;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    color: #000000;
+    position: absolute;
+    left: 8px;
+    top: 0;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.registration-box .main-text {
+    width: 290px;
     height: 76px;
-    margin-left: 65px;
-    margin-top: 73px;
-    margin-bottom: 31px; 
     opacity: 0.72;
     font-size: 32px;
     font-weight: 700;
@@ -21,13 +35,16 @@
     color: #000000;
 }
 
+.main-text {
+    text-align: left;
+}
+
 .registration-input {
-    width: 280px;
+    width: 260px;
     height: 51px;
+    margin-bottom: 20px;
     padding-left: 17px;
     padding-right: 17px;
-    margin-left: 65px;
-    margin-bottom: 23px;
     border-radius: 9px;
     background-color: #eef0f2;
     color: #868686;
@@ -63,12 +80,11 @@
 ._registration-button {
     width: 72px;
     height: 36px;
-    margin-left: 179px;
-    margin-top: 9px;
     opacity: 0.72;
     border-radius: 9px;
     border: 1px solid #000000;
     background-color: #ffffff;
+    margin-top: 10px;
     font-size: 15px;
     font-weight: 700;
 }

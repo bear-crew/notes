@@ -1,7 +1,8 @@
 .megadraft {
     width: 100%;
     padding: 50px 86px 0 86px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .megadraft::after {

@@ -11,7 +11,7 @@
     outline: none;
 }
 
-.login-button:hover {
+.login-button:hover, .user-button:hover, .user-name:hover {
     cursor: pointer;
 }
 

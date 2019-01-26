@@ -16,7 +16,7 @@ router.post('/user', function (req, res, next) {
         if (err) 
             return res.sendStatus(500);
         if (result) 
-            return res.send("Sorry, username is occupied");
+            return res.sendStatus(401).send("Sorry, username is occupied");
 
         bcrypt.hash(password, 10, function(err, hash) {
             if (err)
@@ -57,15 +57,15 @@ router.get('/user', function (req, res, next) {
     });
 });
 
-router.get('/checkuser', function (req, res, next) {
+router.post('/checkuser', function (req, res, next) {
     User.findOne({username: req.body.username}, function(err, user) {
         if (err) 
             return res.sendStatus(500);
         else 
             if (user)
-                res.send(true);
+                res.send("false");
             else
-                res.send(false);
+                res.send("true");
     });
 });
 

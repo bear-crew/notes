@@ -1,18 +1,19 @@
 .login-box {
-    display: block;
+    display: flex;
+    padding: 40px 0 0 0;
+    flex-direction: column;
+    align-items: center;
     width: 430px;
-    height: 449px;
+    height: 410px;
     border-radius: 6px;
     border: 1px solid #e0e0e0;
+    position: relative;
     background-color: #ffffff;
 }
 
-.login-box p {
-    width: 270px;
+.login-box .main-text {
+    width: 290px;
     height: 76px;
-    margin-left: 65px;
-    margin-top: 73px;
-    margin-bottom: 31px; 
     opacity: 0.72;
     font-size: 32px;
     font-weight: 700;
@@ -21,13 +22,51 @@
     color: #000000;
 }
 
+.main-text {
+    text-align: left;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 27px;
+}
+
+.back {
+    opacity: 0.72;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    color: #000000;
+    position: absolute;
+    left: 8px;
+    top: 0;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.small-text, .login-box .sign-up {
+    opacity: 0.72;
+    font-size: 15px;
+    width: 140px;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    color: #000000;
+}
+
+.login-box .sign-up {
+    width: auto;
+    margin-left: 6px;
+}
+
 .login-input {
-    width: 280px;
+    width: 260px;
     height: 51px;
+    margin-bottom: 20px;
     padding-left: 17px;
     padding-right: 17px;
-    margin-left: 65px;
-    margin-bottom: 23px;
     border-radius: 9px;
     background-color: #eef0f2;
     color: #868686;
@@ -63,12 +102,11 @@
 ._login-button {
     width: 72px;
     height: 36px;
-    margin-left: 179px;
-    margin-top: 9px;
     opacity: 0.72;
     border-radius: 9px;
     border: 1px solid #000000;
     background-color: #ffffff;
+    margin-top: 10px;
     font-size: 15px;
     font-weight: 700;
 }

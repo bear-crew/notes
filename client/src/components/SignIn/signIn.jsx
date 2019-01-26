@@ -55,10 +55,15 @@ class SignIn extends Component {
     render() {
         return(
             <div className="login-box">
-                <p>Save your notes in a cloud right now</p>
+                <a className="back" href="/">👈</a>
+                <p className="main-text">Save your notes in a cloud right now</p>
                 <input value = {this.state.username} type="text" placeholder="username" className="login-input" onChange={(e) => {this.updateUsername(e); }}/>
                 <input value = {this.state.password} type="password" placeholder="password" className="login-input" onChange={(e) => {this.updatePassword(e); }}/>
-                <button type="button" className="_login-button" onClick={this.logOn}>Login</button> 
+                <button type="button" className="_login-button" onClick={this.logOn}>Login</button>
+                <div className="wrapper">
+                    <p className="small-text">Do not have an account?</p>
+                    <a className="sign-up" href="/signup">Sign Up</a>
+                </div> 
             </div>
         );
     }

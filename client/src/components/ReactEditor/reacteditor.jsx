@@ -2,6 +2,7 @@ import React from 'react';
 //import { Editor } from 'react-draft-wysiwyg';
 //import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { MegadraftEditor, editorStateFromRaw } from "megadraft";
+import DefaultNote from '../DefaultNote/defaultnote';
 import 'megadraft/dist/css/megadraft.css';
 import { EditorState } from 'draft-js';
 import { convertToRaw, convertFromRaw } from "draft-js";
@@ -61,7 +62,7 @@ class ReactEditor extends React.Component {
 	render() {
 		if(!this.state.editorState) {
 			return (
-				<h3>Loading...</h3>
+				<DefaultNote />
 			);
 		}
 

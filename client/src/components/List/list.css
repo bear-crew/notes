@@ -54,6 +54,9 @@
     font-size: 15px;
     margin: 0;
     vertical-align: middle;
+    max-width: 222px;
+    max-height: 4em;
+    overflow: hidden;
 }
 
 .plus {

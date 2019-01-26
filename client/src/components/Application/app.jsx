@@ -22,7 +22,7 @@ class Application extends Component {
             })
             .then(res => {
                 if(res.status !== 500 && res.status !== 401){
-                    //TODO: обновить токен
+                    //TODO: renew token
                     this.setState({loginState: true})
                     res.json().then(result => {
                         if(result) {

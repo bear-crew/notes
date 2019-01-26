@@ -1,6 +1,4 @@
 import React from 'react';
-//import { Editor } from 'react-draft-wysiwyg';
-//import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { MegadraftEditor, editorStateFromRaw } from "megadraft";
 import DefaultNote from '../DefaultNote/defaultnote';
 import 'megadraft/dist/css/megadraft.css';

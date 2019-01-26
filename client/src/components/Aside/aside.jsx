@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AsideBody from '../AsideBody/AsideBody';
 import { EditorState } from 'draft-js';
-import { convertToRaw } from "draft-js";
 import './aside.css';
 import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import { connect } from 'react-redux';

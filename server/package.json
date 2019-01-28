@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "homepage": "https://github.com/bear-crew/notes",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^4.13.17",
-    "node-gyp": "^3.8.0"
+    "mongoose": "^4.13.17"
   },
   "devDependencies": {},
   "scripts": {

@@ -2,6 +2,7 @@
   "name": "notes-react-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/bear-crew/notes",
   "dependencies": {
     "draft-js": "^0.10.5",
     "lodash": "^4.17.11",

@@ -12,11 +12,11 @@ class UserMenu extends Component {
 
     render() { 
         return (
-            <div className={this.props.shouldHide ? 'bubble hidden' : 'bubble'}>
+            <div className={ this.props.shouldHide ? 'bubble hidden' : 'bubble' }>
                 <img src="photo.jpg" alt="Profile picture"/>
                 <div className="name-and-signout">
-                <p className="bubble-username">{this.props.username}</p>
-                <button type="button" className="logout-button" onClick={this.logOut}>Sign out</button>
+                <p className="bubble-username">{ this.props.username }</p>
+                <button type="button" className="logout-button" onClick={ this.logOut }>Sign out</button>
                 </div>
             </div>
         );

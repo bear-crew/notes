@@ -18,7 +18,7 @@ class Aside extends Component {
                 'x-auth': localStorage.getItem('token')
             },
             body: JSON.stringify({
-                note: {}
+                note: { }
             })
         })
         .then(res => {
@@ -31,7 +31,7 @@ class Aside extends Component {
                         changeNotes(noteList);
                         changeCurrentNote(result);
                     }
-                });                
+                });
             }
         });
     }
@@ -55,12 +55,12 @@ class Aside extends Component {
     }
 
     render() { 
-        const bin = this.props.currentNote && <button type="button" className="delete-note" onClick={this.deleteNote}></button> //TODO: isOpen obsolete
+        const bin = this.props.currentNote && <button type="button" className="delete-note" onClick={ this.deleteNote }></button>
         return (
             <aside id="menu">
                 <AsideBody/>
                 <div className ="menu-buttons">
-                    <button type="button" className="new-note" onClick = {this.addNote}></button>
+                    <button type="button" className="new-note" onClick={ this.addNote }></button>
                     {bin}
                 </div>
             </aside>

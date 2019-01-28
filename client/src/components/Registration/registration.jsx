@@ -78,9 +78,9 @@ class Registration extends Component {
             <div className="registration-box">
                 <a className="back" href="/signin">👈</a>
                 <p className="main-text">Save your notes in a cloud right now</p>
-                <input value = {this.state.username} type="text" placeholder="username" className={ this.state.usernameIsFree ? "registration-input green" : "registration-input red"} onChange={ (e) => { this.updateUsername(e); } }/>
-                <input value = {this.state.password} type="password" placeholder="password" className="registration-input" onChange={ (e) => { this.updatePassword(e); } }/>
-                <input value = {this.state.passwordConfirm} type="password" placeholder="confirm password" className={ this.checkPasswords() ? "registration-input green" : "registration-input red"} onChange={ (e) => {this.updatePasswordConfirm(e); } }/>
+                <input value={ this.state.username } type="text" placeholder="username" className={ this.state.usernameIsFree ? "registration-input green" : "registration-input red"} onChange={ (e) => {this.updateUsername(e);} }/>
+                <input value={ this.state.password } type="password" placeholder="password" className="registration-input" onChange={ (e) => {this.updatePassword(e);} }/>
+                <input value={ this.state.passwordConfirm } type="password" placeholder="confirm password" className={ this.checkPasswords() ? "registration-input green" : "registration-input red" } onChange={ (e) => {this.updatePasswordConfirm(e);} }/>
                 <button type="button" className="_registration-button" onClick={ this.reg }>Sign Up</button> 
             </div>
         );

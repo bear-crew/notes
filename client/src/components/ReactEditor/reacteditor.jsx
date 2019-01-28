@@ -1,32 +1,31 @@
 import React from 'react';
-import { MegadraftEditor, editorStateFromRaw } from "megadraft";
+import { MegadraftEditor } from 'megadraft';
 import DefaultNote from '../DefaultNote/defaultnote';
 import 'megadraft/dist/css/megadraft.css';
 import { EditorState } from 'draft-js';
-import { convertToRaw, convertFromRaw } from "draft-js";
+import { convertToRaw, convertFromRaw } from 'draft-js';
 import { putStateToProps, putActionsToProps } from '../../store/connectors';
 import { connect } from 'react-redux';
 import debounce from 'lodash/debounce';
 import './reacteditor.css';
 
 class ReactEditor extends React.Component {
-	state = { };
-
+	state = { }
 	componentDidUpdate(prevProps) {
 		if ( (this.props.currentNote && !prevProps.currentNote) || (this.props.currentNote && prevProps.currentNote && this.props.currentNote._id !== prevProps.currentNote._id) ) {
 			if (this.props.currentNote.content) {
 				let note = this.props.currentNote.content;
 				if(!note.entityMap)
-					note.entityMap = {};
+					note.entityMap = { };
 				this.setState( { editorState: EditorState.createWithContent(convertFromRaw(note)) } );
 			}
 			else {
-				this.setState( { editorState: editorStateFromRaw(null) } );
+				this.setState( { editorState: EditorState.createEmpty() } );
 			}
 		}
 
 		if (!this.props.currentNote && prevProps.currentNote)
-			this.setState( {editorState: null} );
+			this.setState( { editorState: null } );
 	}
 
 	saveContent = debounce((request) => {
@@ -41,7 +40,6 @@ class ReactEditor extends React.Component {
 	}, 500)
 
 	onEditorStateChange = (editorState) => {
-		console.log("editor-state-change");
 		this.setState({
 			editorState
 		});
@@ -66,8 +64,8 @@ class ReactEditor extends React.Component {
 
 		return (
 			<MegadraftEditor
-				editorState={this.state.editorState}
-				onChange={this.onEditorStateChange}
+				editorState={ this.state.editorState }
+				onChange={ this.onEditorStateChange }
 			/>
 		)
 	}

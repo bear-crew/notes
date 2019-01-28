@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import './search.css';
 
 class Search extends Component {
-    state = {  }
-
     search = (value) => {
         const { changeSearch } = this.props;
         changeSearch(value.target.value);

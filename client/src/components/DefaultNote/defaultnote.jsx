@@ -21,7 +21,6 @@ class DefaulNote extends Component {
                 <ul>
                     <li>Adding images</li>
                 </ul>
-
                 <h3>In the future updates (maybe):</h3>
                 <p>Editing profile</p>
                 <p>Better editor</p>
@@ -36,7 +35,6 @@ class DefaulNote extends Component {
                 <ul>
                     <li>Adding videos</li>
                 </ul>      
-
            </div>
         );
     }

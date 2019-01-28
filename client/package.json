@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "Dante2": "^0.5.0-rc4",
     "draft-js": "^0.10.5",
     "lodash": "^4.17.11",
     "megadraft": "^0.6.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-draft-wysiwyg": "^1.12.19",
     "react-redux": "^6.0.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",

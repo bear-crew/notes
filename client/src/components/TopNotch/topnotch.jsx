@@ -17,15 +17,15 @@ class TopNotch extends Component {
 
     render() {
         const login = !this.props.loginState && <a href="/signin"><button type="button" className="login-button">Login</button></a>
-        const userpic = this.props.loginState && <button type="button" className="user-button" onClick={this.showMenu}><img src="photo.jpg" className="user-pic" /></button>
-        const username = this.props.loginState && <div className="user-name" onClick={this.showMenu}>{this.props.username}</div>
+        const userpic = this.props.loginState && <button type="button" className="user-button" onClick={ this.showMenu }><img src="photo.jpg" className="user-pic"/></button>
+        const username = this.props.loginState && <div className="user-name" onClick={ this.showMenu }>{ this.props.username }</div>
         return(
             <div className="top-notch">
                 <div className="left-edit">
                     {login}
                     {userpic}
                     {username}
-                    <UserMenu shouldHide={this.state.menuIsHidden} username = {this.props.username}/>
+                    <UserMenu shouldHide={ this.state.menuIsHidden } username = { this.props.username }/>
                 </div>
             </div>
         )

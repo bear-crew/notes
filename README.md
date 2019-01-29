@@ -29,7 +29,7 @@ Bear Crew Notes is a small web application for creating notes and store them on 
 
 ## Installation
 
-First of all you have to installMongoDB, then start the server:
+First of all you have to install MongoDB, then start the server:
 ```sh
 $ git clone https://github.com/bear-crew/notes
 $ cd notes/server

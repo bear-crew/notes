@@ -9,6 +9,8 @@ Bear Crew Notes is a small web application for creating notes and store them on 
 - Adding and deleting notes
 - Searching through the notes
 - Adding images
+- Sign in
+- Sign up
 
 ### Editing text:
 
